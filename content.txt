@@ -2,171 +2,19 @@
 Sam Altman is concerned about AI being used to compromise elections
 Reuters
 https://www.reuters.com/technology/openai-chief-goes-before-us-congress-propose-licenses-building-ai-2023-05-16/
-The CEO of OpenAI, the startup behind ChatGPT, told a Senate panel on Tuesday the use of artificial intelligence to interfere with election integrity is a "significant area of concern", adding that it needs regulation.
-
-"I am nervous about it," CEO Sam Altman said about elections and AI, adding rules and guidelines are needed.
-
-For months, companies large and small have raced to bring increasingly versatile AI to market, throwing endless data and billions of dollars at the challenge. Some critics fear the technology will exacerbate societal harms, among them prejudice and misinformation, while others warn AI could end humanity itself.
-
-"There's no way to put this genie in the bottle. Globally, this is exploding," said Senator Cory Booker, one of many lawmakers with questions about how best to regulate AI.
-
-Senator Mazie Hirono noted the danger of misinformation as the 2024 election nears. "In the election context, for example, I saw a picture of former President Trump being arrested by NYPD and that went viral," she said, pressing Altman on whether he would consider the faked image harmful.
-
-Altman responded that creators should make clear when an image is generated rather than factual.
-
-Speaking before Congress for the first time, Altman suggested that, in general, the U.S. should consider licensing and testing requirements for development of AI models.
-
-Altman, asked to opine on which AI should be subject to licensing, said a model that can persuade or manipulate a person's beliefs would be an example of a "great threshold."
-
-He also said companies should have the right to say they do not want their data used for AI training, which is one idea being discussed on Capitol Hill. Altman said, however, that material on the public web would be fair game.
-
-Altman also said he "wouldn't say never" to the idea of advertising but preferred a subscription-based model.
-
-The White House has convened top technology CEOs including Altman to address AI. U.S. lawmakers likewise are seeking action to further the technology's benefits and national security while limiting its misuse. Consensus is far from certain.
-
-An OpenAI staffer recently proposed the creation of a U.S. licensing agency for AI, which could be called the Office for AI Safety and Infrastructure Security, or OASIS, Reuters has reported.
-
-OpenAI is backed by Microsoft Corp (MSFT.O). Altman is also calling for global cooperation on AI and incentives for safety compliance.
-
-Christina Montgomery, International Business Machines Corp (IBM.N) chief privacy and trust officer, urged Congress to focus regulation on areas with the potential to do the greatest societal harm.
-
----
-[NEWS]
-Anthropic Announces Partnership and Investment from Zoom
-Anthropic Blog
-https://www.anthropic.com/index/zoom-partnership-and-investment
-We are announcing a new partnership with Zoom, a leader in enterprise collaboration and communication solutions. Zoom will use Claude, our AI assistant built with Constitutional AI, to build customer-facing AI products focused on reliability, productivity, and safety.
-"Collaborating with Zoom allows us to bring robust, steerable AI to more people in the workplace," said our CEO Dario Amodei. "We are excited to showcase Anthropic's and Zoom's commitment to boosting productivity through AI-enabled solutions that prioritize safety and helpfulness.”
-We appreciate Zoom's federated approach to AI, which will use its own technology plus other models, including Claude, for diverse customer needs. The first product integration of Claude will occur in the Zoom Contact Center portfolio, where Claude will help improve the end-user experience and enable superior contact center agent performance.
-We are also pleased to announce that Zoom Ventures has made an investment in Anthropic. The Zoom team shares our vision of building customer-centric AI products with a foundation of trust and security, that are robust enough for real-world use. By combining our expertise, Zoom and Anthropic will help to incorporate AI into beneficial applications that meets customer needs. 
+This is the raw newspiece copy paste.
+it can be as many lines as you want.
 
 ---
 [OTHER]
 The LLM University by Cohere — Your Go-To Learning Resource for NLP🎓
 Cohere Blog
 https://txt.cohere.com/llm-university/
-Discover our comprehensive NLP curriculum at LLM University. From the fundamentals of LLMs all the way to the most advanced topics, including generative AI
-
-TL;DR:
-We're excited to announce the launch of LLM University (LLMU), a set of comprehensive learning resources for anyone interested in natural language processing (NLP), from beginners to advanced learners. Join us to master NLP skills and start building your own AI applications!
-Hey there, NLP enthusiasts!
-As the developer relations lead at Cohere, I'm thrilled to introduce you to LLM University, your go-to place for learning natural language processing (NLP) using language models. These courses are tailor-made for learners who want to dive into the world of NLP, large language models (LLMs), and generative AI.
-With extensive experience in natural language processing and machine learning, NLP experts Jay Alammar, Meor Amer, and I will share our firsthand knowledge of the transformative power of NLP. As educators at heart, we are eager to help others succeed and unlock the true potential of this technology.
-Check out our introductory video here!
-
-Who Is LLMU For?
-LLMU’s comprehensive curriculum aims to give you a rock-solid foundation in Language AI, equipping you with the skills needed to develop your own applications. Whether you want to learn semantic search, generation, classification, embeddings, or any other NLP technique, this is the place for you! We cater to learners from all backgrounds, and courses are geared toward anyone excited about language processing: ML beginners, any enthusiast looking to build apps with language AI, and learners who are ready to put their skills into practice. LLM University takes a one-size-fits-all approach, but learners can pick their own path.
-What’s on the LLMU Curriculum?
-Our courses cover everything from the basics of LLMs to the most advanced topics, including generative AI, ensuring that you can harness their full potential.
-The conceptual portion of our courses is explained clearly and with analogies and examples rather than formulas, and the practical portion contains lots of useful code examples that will help you solidify your knowledge. Plus, you'll have the opportunity to work on hands-on exercises, allowing you to build and deploy your very own models.
-LLM University offers the following courses, all of which can serve as starting points for your learning path, depending on your previous knowledge and your goals.
-Introduction to LLMs
-Text Representation
- • Embeddings
- • Classification
- • Semantic Search 
-Text Generation
- • Prompt engineering
- • Chaining prompts
-In addition to the course material, we will be conducting reading groups and hosting events exclusively for our learners!
-Ready to Dive In? 🏊‍♂️
-Don't hesitate — start exploring LLMU’s curriculum today and embark on an exciting learning journey with us!
-Join our LLMU Community! 🌐
-If you’d like to go through the course material with other enthusiasts, join our Discord LLMU Community! For specific questions regarding LLMU, please visit our #llmu-announcements channel on Discord, where you can connect with fellow learners, share ideas, and receive support.
-
----
-[OTHER]
-A repo to build a small junior AI developer
-smol-ai/developer GitHub Repo
-https://github.com/smol-ai/developer/
-with 100k context windows on the way, it's now feasible for every dev to have their own smol developer
-# smol developer
-
-***Human-centric & Coherent Whole Program Synthesis*** aka your own personal junior developer
-
-this is a prototype of a "junior developer" agent (aka `smol dev`) that scaffolds an entire codebase out for you once you give it a product spec, but does not end the world or overpromise AGI. instead of making and maintaining specific, rigid, one-shot starters, like `create-react-app`, or `create-nextjs-app`, this is basically [`create-anything-app`](https://news.ycombinator.com/item?id=35942352) where you develop your scaffolding prompt in a tight loop with your smol dev.
-
-AI that is helpful, harmless, and honest is complemented by a codebase that is simple, safe, and smol - <200 lines of Python and Prompts, so this is easy to understand and customize.
-
-*engineering with prompts, rather than prompt engineering* 
-
-The demo example in `prompt.md` shows the potential of AI-enabled, but still firmly human developer centric, workflow:
-
-- Human writes a basic prompt for the app they want to build
-- `main.py` generates code
-- Human runs/reads the code
-- Human can:
-  - simply add to the prompt as they discover underspecified parts of the prompt
-  - manually runs the code and identifies errors
-  - *paste the error into the prompt* just like they would file a github issue
-  - for extra help, they can use `debugger.py` which reads the whole codebase to make specific code change suggestions
-
-Loop until happiness is attained. Notice that AI is only used as long as it is adding value - once it gets in your way, just take over the codebase from your smol junior developer with no fuss and no hurt feelings. (*we could also have smol-dev take over an existing codebase and bootstrap its own prompt... but that's a Future Direction*)
-
-*Not no code, not low code, but some third thing.* 
-
-Perhaps a higher order evolution of programming where you still need to be technical, but no longer have to implement every detail at least to scaffold things out.
-
-### innovations and insights
-
-> Please subscribe to https://latent.space/ for a fuller writeup and insights and reflections
-- **Markdown is all you need** - Markdown is the perfect way to prompt for whole program synthesis because it is easy to mix english and code (whether `variable_names` or entire \`\`\` code fenced code samples)
-  - turns out you can specify prompts in code in prompts and gpt4 obeys that to the letter
-- **Copy and paste programming**
-  - teaching the program to understand how to code around a new API (Anthropic's API is after GPT3's knowledge cutoff) by just pasting in the `curl` input and output
-  - pasting error messages into the prompt and vaguely telling the program how you'd like it handled. it kind of feels like "logbook driven programming".
-- **Debugging by `cat`ing** the whole codebase with your error message and getting specific fix suggestions - particularly delightful!
-- **Tricks for whole program coherence** - our chosen example usecase, Chrome extensions, have a lot of indirect dependencies across files. Any hallucination of cross dependencies causes the whole program to error. 
-  - We solved this by adding an intermediate step asking GPT to think through `shared_dependencies.md`, and then insisting on using that in generating each file. This basically means GPT is able to talk to itself...
-  - ... but it's not perfect, yet. `shared_dependencies.md` is sometimes not comperehensive in understanding what are hard dependencies between files. So we just solved it by specifying a specific `name` in the prompt. felt dirty at first but it works, and really it's just clear unambiguous communication at the end of the day. 
-  - see `prompt.md` for SOTA smol-dev prompting
-- **Low activation energy for unfamiliar APIs**
-  - we have never really learned css animations, but now can just say we want a "juicy css animated red and white candy stripe loading indicator" and it does the thing. 
-  - ditto for Chrome Extension Manifest v3 - the docs are an abject mess, but fortunately we don't have to read them now to just get a basic thing done
-  - the Anthropic docs (bad bad) were missing guidance on what return signature they have. so just curl it and dump it in the prompt lol.
-- **Modal is all you need** - we chose Modal to solve 4 things:
-  - solve python dependency hell in dev and prod
-  - parallelizable code generation
-  - simple upgrade path from local dev to cloud hosted endpoints (in future)
-  - fault tolerant openai api calls with retries/backoff, and attached storage (for future use)
-
-### caveats
-
-We were working on a Chrome Extension, which requires images to be generated, so we added some usecase specific code in there to skip destroying/regenerating them, that we haven't decided how to generalize.
-
-We dont have access to GPT4-32k, but if we did, we'd explore dumping entire API/SDK documentation into context.
-
-The feedback loop is very slow right now (`time` says about 2-4 mins to generate a program with GPT4, even with parallelization due to Modal (occasionally spiking higher)), but it's a safe bet that it will go down over time (see also "future directions" below).
-
----
-[PAPER]
-https://arxiv.org/abs/2305.07440
-
----
-[PAPER]
-https://arxiv.org/abs/2305.05377
+This blog piece can also be as long as you want
+The second line above serves both for author and source, if needed. It's all natural language so who cares, just express it normally.
 
 ---
 [PAPER]
 https://arxiv.org/abs/2305.08298
-Jerry Wei (first author) tweets: Symbol tuning is a simple method that improves in-context learning by emphasizing input–label mappings. It improves robustness to prompts without instructions/relevant labels and boosts performance on algorithmic tasks.
-Why symbol tuning? 🤔
-Instruction tuning: Task redundantly defined via instructions/labels. Exemplars can help but usually aren't needed to learn task.
-Symbol tuning: Remove instructions, change labels to unrelated symbols. Task can only be learned from exemplars.
-Symbol-tuning procedure 🔬
-We symbol tune Flan-PaLM models (8B, 62B, 62B-cont, 540B) using 22 datasets and ~30,000 semantically-unrelated labels.
-Only a relatively-small amount of compute is needed!
-8B and 62B models: tuned for 4k steps
-540B models: tuned for 1k steps
-Finding 1: Symbol-tuned models are better in-context learners 🧑‍🏫
-Symbol-tuned models are better at in-context learning settings with/without instructions and with/without relevant labels. Larger gains are achieved when relevant labels are not available.
-Finding 2: Symbol tuning improves performance on algorithmic reasoning tasks 🧮
-On the list functions task and simple turing concepts task from BIG-Bench, symbol tuning improves performance by up to +18.2% and 15.3%, respectively.
-Finding 3: Symbol-tuned models can override priors via flipped labels 🔃
-Pretrained language models can follow flipped labels in in-context exemplars to some extent, but this ability is lost during instruction tuning. Symbol tuning restores this capability.
-We hope our paper encourages exploration in allowing language models to reason over arbitrary symbols given in-context. It’s exciting to see how models can improve on so many areas with a tweak to the tuning procedure!
-Feel free to reach out with questions/feedback! 😁
-
-Jason Wei tweets: Performance boosts are great, but there is a more profound insight in this paper that was not explicitly stated:  LLMs are trained on human language, but due to the nature of how language was developed (first via oral language, which is lossy), language is riddled with redundancies and unnecessary repetitions. The LLM-relevant example of this is that when we do few-shot learning, we actually encode what the "task" is in at least three different ways: the instructions, the few-shot exemplars, and the natural language labels. So when you do few-shot prompting, you have no clue which one of those the LLM is actually using to perform the task.  
-This paper proposes a special type of training that removes the redundancies in the prompt, thereby "forcing" the language model to use the information in a certain way that would be unlikely to occur in the training dataset. Specifically, attending to input--label mappings over arbitrary symbols as labels. This is directly correlated with some sort of "reasoning", where the language model must figure out how to do a task regardless of what the symbol is.
-This method improves performance across a range of settings, which is practically useful. The broader takeaway though is that the nature of language makes some things like reasoning over arbitrary symbols to be not particularly emphasized in the training dataset. But if you choose to "disobey" the rules of language and train on some weird-looking data you can enable language models to be better at unnatural types of pattern recognition.
+Jerry Wei (first author) tweets: this is a tweet about the paper.
+It can also have multiple lines, or remain empty.
