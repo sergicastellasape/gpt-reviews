@@ -1,0 +1,13 @@
+Write a goodbye script for "GPT Reviews":
+- Announce sadly the end of the episode
+- Use  playful derogatory terms to call your audience
+- Thank your collaborators Robert (analyst), Olivia (internet explorer), and Belinda (AI research expert)
+- Remind listeners to check the podcast description for details
+- Fit an in-context joke
+- Remind listeners to send love or hate mail
+
+---
+Date: $DATE
+Joke: $JOKE
+
+[SCRIPT]

@@ -1,0 +1,23 @@
+<p>The EU AI Act&#39;s potential impact on American tech companies, Meta&#39;s impressive new model architecture for better ad experiences, a multi-scale decoder architecture for modeling long sequences, and the need for best practices and regulations for AGI labs.</p>
+<p>Contact: <a href="mailto:sergi@earkind.com">sergi@earkind.com</a></p>
+<p>Timestamps:</p>
+<p>00:34 Introduction</p>
+<p>01:36 <a href="https://technomancers.ai/eu-ai-act-to-target-us-open-source-software/#more-561">EU AI Act To Target US Open Source Software</a></p>
+<p>03:16 <a href="https://ai.facebook.com/blog/ai-ads-performance-efficiency-meta-lattice/">New AI advancements drive Meta’s ads system performance and efficiency</a></p>
+<p>05:29 <a href="https://github.com/brexhq/prompt-engineering/blob/main/README.md">Brex&#39;s Prompt Engineering Guide</a></p>
+<p>06:41 <a href="https://erichartford.com/uncensored-models">Why we need uncensored models and how to train them</a></p>
+<p>07:45 Fake sponsor: Scrub Busters</p>
+<p>09:51 <a href="https://arxiv.org/abs/2305.07185">MEGABYTE: Predicting Million-byte Sequences with Multiscale Transformers</a></p>
+<p>11:21 <a href="https://arxiv.org/abs/2305.07153">Towards best practices in AGI safety and governance: A survey of expert opinion</a></p>
+<p>12:49 <a href="https://arxiv.org/abs/2305.03668">A Suite of Generative Tasks for Multi-Level Multimodal Webpage Understanding</a></p>
+<p>14:28 Outro</p>
+
+Propose a title for the script above highlighting the 3 most attractive elements, with a related emoji for each and // separating each element. Keep it short.
+[TITLE]
+EU AI regulation vs. Open Source 🇪🇺 // Prompt Engineering Guide ✅ // Byte-level Transformers 🤖
+
+---
+$DESCRIPTION
+
+Propose a title for the script above  highlighting the 3 most attractive elements, with a related emoji for each and // separating each element. Keep it short.
+[TITLE]

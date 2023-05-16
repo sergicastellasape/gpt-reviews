@@ -1,0 +1,9 @@
+Write a script for a low-quality skit ad as a conversation between Jane (J) and Luke (L):
+- Choose a mood.
+- Invent a product, company, or service
+
+First, give bullet points with the key information about the conversation, then write a script only including the dialog.
+Mark the start of the script with [SCRIPT], mark speakers as J and L.
+
+[BULLETPOINTS]
+- Mood:  $MOOD

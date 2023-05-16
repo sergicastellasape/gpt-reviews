@@ -1,0 +1,9 @@
+Write a transition from the news section into the section "Random Reads", where Olivia (O) highlights and breaks down her recent internet findings to Giovani (G).
+
+- Topic(s): "$TOPICS"
+- Tease the topic(s) but don't start talking about them.
+- Keep it short, no ads, no diving into the topics
+- Mark speakers' turn as "G" and "O"
+- End the section with the host launching "Random Reads"
+
+[SCRIPT]

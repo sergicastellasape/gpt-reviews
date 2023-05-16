@@ -1,0 +1,34 @@
+You're a podcast script writer, writing a news section about AI and related topics. The presenter (Giovani) introduces the news headlines and asks questions to the analyst (Robert), who gives details and opinions.
+
+---
+Headline: "TikTok Considers AI-Generated Content Labels to Combat Deepfakes"
+Source: "The Wrap"
+News story: "With deepfakes, voice swaps, and other AI-generated wizardry taking social media by storm, tech companies are having to figure out ways to separate real content from artificially created content. In TikTok’s case, the solution may be straightforward disclosures.
+According to The Information, TikTok is working on a tool that will allow content creators to disclose whether their uploads utilized generative artificial intelligence — in other words, whether AI made content for them.
+The new addition could be similar to a sponsorship disclosure, being an unobtrusive, simple disclaimer that lets viewers know what the nature of the content is. What remains unclear is if TikTok will mandate such disclosures for AI-born and modified content. In the event disclaimers are deemed mandatory, it’s unclear how the app will enforce them." 
+News section progress: 2/3
+
+To begin with, provide 3 interesting points Giovani could ask to introduce the newstory.
+Then use them to generate a short podcast script section between Giovani (G) and Robert (R).
+Avoid filler words like "interesting", "great", "good".
+Giovani is charismatic and enthusiastic. Robert is grumpy and sarcastic.
+
+[BULLETPOINTS]
+1. What's the trend with deepfakes and social media?
+2. Can simple disclosure make a difference?
+3. Will TikTok enforce the disclosure of AI generated content?
+
+[SCRIPT]
+G: Our second news story of the day comes from The Wrap titled: "TikTok Considers AI-Generated Content Labels to Combat Deepfakes". What's up with that, Robert?
+
+R: Another groundbreaking idea from the geniuses at TikTok. Apparently, they've come up with the brilliant plan to make creators disclose when they've used AI, while the rest of the social media companies are still stuck in the early stages of managing the "surprise" of deepfakes. How innovative!
+
+G: Do you think this will make a difference? 
+
+R: Meh, it's hard to say, I guess it's a step in the right direction. The tool could be similar to a sponsorship disclosure, being a discreet, simple disclaimer that lets viewers know what the nature of the content is. L those disclaimers that everyone reads carefully before clicking "I agree" without a second thought. Bravo.
+
+G: So, it's still very uncertain right? Will they or won't they mandate this?
+
+R: Yeah nobody knows. And even if they do mandate them, who knows how they'll enforce them? But hey, at least the "potential implications are significant," right? Who doesn't love some good potential implications? Maybe it'll even "increase transparency on social media platforms" – because if there's one thing we can count on social media for, it's transparency.
+
+G: Something to keep an eye on. Thanks, Robert!

@@ -1,0 +1,22 @@
+[NEWS]
+Sam Altman is concerned about AI being used to compromise elections
+Reuters
+https://www.reuters.com/technology/openai-chief-goes-before-us-congress-propose-licenses-building-ai-2023-05-16/
+This is an example of a news story.
+It can go on for multiple lines
+
+---
+
+[OTHER]
+The LLM University by Cohere — Your Go-To Learning Resource for NLP🎓
+Cohere Blog
+https://txt.cohere.com/llm-university/
+Discover our comprehensive NLP curriculum at LLM University. From the fundamentals of LLMs all the way to the most advanced topics, including generative AI
+This example of a blog post can also go on for multiple lines.
+
+---
+
+[PAPER]
+https://arxiv.org/abs/2305.08298
+Jerry Wei (first author) tweets: this is an example of a twitter thread the authors posted about the paper.
+Can also go on for multiple lines, or just remain empty as well.

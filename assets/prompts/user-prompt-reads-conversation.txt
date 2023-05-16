@@ -1,0 +1,13 @@
+Title: $TITLE
+Author/Source: $SOURCE
+Content: $CONTENT
+Section progress: $PROGRESS
+
+- First, provide 3 bulletpoints why this was chosen. For instance, why does it stand out? What controversial topics does it bring? What insights can be drawn? [BULLETPOINTS]
+- Then use the bulletpoints to generate a short podcast subsection script between Giovani (G: ) and Olivia (O: ) [SCRIPT]
+- The script is in the middle of a subsection. Don't introduce neither the show, neither section, neither characters.
+- Olivia leads the conversation and introduces the title, type and author; but Giovani asks the questions.
+- Keep it short, omit salutations, avoid filler generic expressions, cut to the chase.
+- Remind the audience they can find the link to the original content in the podcast description
+
+[BULLETPOINTS]

@@ -1,0 +1,10 @@
+__pycache__/*
+.ipynb_checkpoints/*
+.vscode/*
+assets/audio/*
+!assets/audio/.gitkeep
+assets-today/*
+episode/*
+notebooks/*
+.DS_Store
+assets/deprecated/*
