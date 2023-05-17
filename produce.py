@@ -106,11 +106,11 @@ if args.scope in ["scripts", "recordings", "all"]:
     # TRANSITION 1
     topics = "; ".join([r['title'] for r in reads])
     transition1 = write(system_prompt=prompts['system_prompt_reads'],
-                             user_prompt_template=prompts['user_prompt_reads_transition'],
-                             substitutions={"$TOPICS": topics},
-                             script_path="assets-today/scripts/transition1.txt",
-                             temperature=1,
-                             parsing_options={"delete_gio": True})
+                        user_prompt_template=prompts['user_prompt_reads_transition'],
+                        substitutions={"$TOPICS": topics},
+                        script_path="assets-today/scripts/transition1.txt",
+                        temperature=1,
+                        parsing_options={"delete_gio": True})
     
     # RANDOM READS
     reads_scripts = []
@@ -149,12 +149,11 @@ if args.scope in ["scripts", "recordings", "all"]:
     # TRANSITION 2
     titles = "; ".join([p['title'] for p in papers])
     transition2 = write(system_prompt=prompts['system_prompt_gio'],
-                           user_prompt_template=prompts['user_prompt_transition'],
-                           substitutions={
-        "$PAPERTITLES": titles, "$AD": ad_script},
-        script_path="assets-today/scripts/transition2.txt",
-        temperature=1,
-        parsing_options={})
+                        user_prompt_template=prompts['user_prompt_transition'],
+                        substitutions={"$PAPERTITLES": titles, "$AD": ad_script},
+                        script_path="assets-today/scripts/transition2.txt",
+                        temperature=1,
+                        parsing_options={})
 
     # PAPERS
     paper_scripts = []
@@ -286,10 +285,8 @@ if args.scope == "all":
     intro_section = adjust_volume(intro_section, narration_loudness_target)
     outro_section = adjust_volume(outro_section, narration_loudness_target)
     ad_section = adjust_volume(ad_section, narration_loudness_target)
-    transition1_section = adjust_volume(
-        transition1_section, narration_loudness_target)
-    transition_section = adjust_volume(transition_section,
-                                       narration_loudness_target)
+    transition1_section = adjust_volume(transition1_section, narration_loudness_target)
+    transition_section = adjust_volume(transition_section,narration_loudness_target)
     news_sections = [adjust_volume(section, narration_loudness_target)
                      for section in news_sections]
     reads_sections = [adjust_volume(section, narration_loudness_target)
@@ -358,8 +355,8 @@ if args.scope == "all":
     #### NEWS ####
     for i, news_section in enumerate(news_sections):
         if i == 0:
-            news_section = AudioSegment.silent(
-                duration=6000).append(news_section, crossfade=5)
+            news_section = AudioSegment.silent(duration=6000)\
+                                       .append(news_section, crossfade=5)
             background = jingle_news_and_background_1.fade(
                 to_gain=-11, start=5500, duration=1000)
         else:
@@ -389,13 +386,14 @@ if args.scope == "all":
 
     #### ADS ####
     pod_description += f"\n\n{ms_to_time(len(program))} Fake sponsor"
-    ad_section = AudioSegment.silent(duration=3000).append(
-        ad_section).append(AudioSegment.silent(duration=5000))
-    ad_section = ad_section.overlay(
-        ad_music, loop=True).fade_out(duration=4000)
+    ad_section = AudioSegment.silent(duration=3000)\
+                             .append(ad_section)\
+                             .append(AudioSegment.silent(duration=5000))
+    ad_section = ad_section.overlay(ad_music, loop=True)\
+                           .fade_out(duration=4000)
 
-    sponsor_section = fake_sponsor_jingle.append(
-        ad_section, crossfade=1000).append(fake_sponsor_jingle_out, crossfade=200)
+    sponsor_section = fake_sponsor_jingle.append(ad_section, crossfade=1000)\
+                                         .append(fake_sponsor_jingle_out, crossfade=200)
 
     program = program.append(sponsor_section)
 
