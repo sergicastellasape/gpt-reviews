@@ -1,6 +1,15 @@
-# 🎙️ GPT Reviews
-
-## An end-to-end* AI-generated podcast
+<h1 align="center">🎙️ GPT Reviews</h1>
+<p align="center">
+Listen on:
+</p>
+<p align="center">
+  <a href="https://open.spotify.com/show/2xvBhAct7kGYd6h9b8txhq?si=b2f4a5e7b2304cec"><img src="https://lh6.googleusercontent.com/HcjHfjQnj-fOv1jjiixDJEEffHvgd1CYbom81j06nmRdYkojxDxUcy7heVwXUUH0Ib1q3RvktH6fHnpGJvxXZSdPYZ2ghVGdP23tDNLYbd0" alt="Spotify" height="40"></a> 
+  <a href="https://music.amazon.co.uk/podcasts/b32e4420-6d57-44ed-915d-e68316217df6/gpt-reviews" target="_blank"><img src="https://lh4.googleusercontent.com/eJGwTHoDMP64ihx8R066lCC1u-_1y0ZalTXAUBeZQK9HqSOo3rzXjchubITji8gMOVmmjCEZDykEfP0Pq4yBC5Iaq-kB5nIlXEQvLPA0h7E" alt="Link" height="40"></a>
+  <a href="https://podcasts.apple.com/es/podcast/gpt-reviews/id1687287441"><img src="https://lh3.googleusercontent.com/3aYNpkvq5v-gVHoeoVJ610vo9zi2iITpJby9JJ2j68d3TPS6-zOdIVOIUkyIS_MgMBZZBsQYVoDAE-fHzRC28NLRGxliE9E39BkwN-Gpqng" alt="Link" height="40"></a>
+  <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy9lMDgwOWM0OC9wb2RjYXN0L3Jzcw"><img src="https://lh3.googleusercontent.com/XdTEkPqSKW7oMjHHA1vQD4rM9Q9yK7VDmJjX9I6ilflL8pNMnpGHZTeO-a0h0IN0GBLZVssRzhBSUtQhISLXxd9mylZIp9RpuJG45SegiKs" alt="Link" height="40"></a>
+  <a href="https://pca.st/hxzcjo0l"><img src="https://lh5.googleusercontent.com/CrfeXN4C27n6w2Nke2g9IACzYcWKCTs4ZGnynHRENOEzbBrg3z3T-wkUrFyzFCweU3Bw7fedYrGOri4ROkOBsjoKce3whkxjXKHLiQWz7IU" alt="Link" class="xbGufb" height="40"></a>
+  <a href="https://twitter.com/earkindtech"><img src="https://lh6.googleusercontent.com/g3p9SV1AfEiiJeaitAcOxQ5Y4gDqdkGc90MQTGNH3YP7arPkK07h6FCpihpX5Gcd7xgJ_9HtYMKPe_l1jBWbOgmXMthNLWWowIonEy580Yo" alt="Twitter" height="40"></a>
+</p>
 
 _*well there's no such thing as end to end is there. You feed it the news/papers/blogs you want and can also do manual editing of the scripts easily._
 
