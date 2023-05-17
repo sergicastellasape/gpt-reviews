@@ -1,3 +1,4 @@
+import logging
 import openai
 import os
 import re
@@ -15,14 +16,14 @@ def write(system_prompt,
         for k, v in substitutions.items():
             user_prompt_template = user_prompt_template.replace(k, v)
         prompt = user_prompt_template
-        print(f"Generating script for {script_path}")
+        logging.info(f"Generating script for {script_path}")
         completion = generate(system_prompt, prompt, temperature=temperature)
         script = parse_gpt_output(completion, parsing_options)
         assert script != ""
         with open(script_path, "w") as f:
             f.write(script)
     else:
-        print(f"Loading script from {script_path}")
+        logging.info(f"Loading script from {script_path}")
         with open(script_path) as f:
             script = f.read()
     return script
@@ -33,7 +34,7 @@ def generate(system_prompt, user_prompt, temperature=0.7):
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_prompt}
     ]
-
+    logging.debug(f"Calling OpenAI with {messages}")
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=messages,

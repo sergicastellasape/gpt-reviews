@@ -1,6 +1,7 @@
 import os
 import json
 import feedparser
+import logging
 import requests
 import PyPDF2
 
@@ -22,6 +23,7 @@ def load_content():
                 "[OTHER]": "other"}
     
     if not os.path.exists(f"assets-today/content.json"):
+        logging.info("Parsing content from content.txt")
         with open("content.txt") as f:
             content_list = f.read().split("---")
         # make sure no empty stuff
@@ -52,6 +54,7 @@ def load_content():
         with open(f"assets-today/content.json", "w") as f:
             json.dump(content, f)
     else:
+        logging.info("Loading content from content.json")
         with open(f"assets-today/content.json") as f:
             content = json.load(f)
     return content

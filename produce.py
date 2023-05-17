@@ -4,6 +4,7 @@ import random
 from datetime import datetime
 import markdown
 import randfacts
+import logging
 import pyjokes
 from pydub import AudioSegment
 
@@ -15,10 +16,16 @@ from src.editing import load_at_volume, adjust_volume, ms_to_time
 parser = argparse.ArgumentParser(description="Main Script for GPT Reviews")
 parser.add_argument("scope", choices=["content", "scripts", "recordings", "all"],
                     help="Choose between 'content', 'scripts', 'recordings', 'all'")
-parser.add_argument('-d', '--date', type=str, default="",
+parser.add_argument('--date', type=str, default="",
                     help="Specify the date of the pod episode as `yyyy-mm-dd`.\
                         Otherwise it'll take today as the time of running")
+parser.add_argument('--log', type=str, default="INFO", dest="loglevel",
+                    help="Speciify the log level from info, warning, debug, error")
 args = parser.parse_args()
+
+logging.basicConfig(filename=f'{str(datetime.now())[:-7]}.log', encoding='utf-8',
+                    format='%(levelname)s:%(name)s: %(asctime)s %(message)s', datefmt='%I:%M:%S %p',
+                    level=getattr(logging, args.loglevel.upper()))
 
 ################################################################
 ########################## PREPROCESS! #########################
@@ -64,7 +71,7 @@ if not args.date:
 else:
     today = datetime.strptime(args.date, "%Y-%m-%d")\
                     .strftime("%A, %B %d, %Y")
-print(f"Usind date: {today}")
+logging.info(f"Usind date: {today}")
 
 if args.scope in ["scripts", "recordings", "all"]:
     # in chronological order, comments make it easier to skim
@@ -131,7 +138,7 @@ if args.scope in ["scripts", "recordings", "all"]:
         "delete_gio": False,
         "delete_parenthesis": True
     }
-    print("Mood choice: ", mood)
+    logging.info(f"Mood choice: {mood}")
     ad_script = write(system_prompt="",
                       user_prompt_template=prompts['user_prompt_ad_conversation'],
                       substitutions={"$MOOD": mood},
@@ -269,7 +276,7 @@ if args.scope in ["recordings", "all"]:
 
 if args.scope == "all":
     # audio editing after all clips shave been created
-    print("WORKING ON THE AUDIO EDITING")
+    logging.info("WORKING ON THE AUDIO EDITING")
     background_loudness_target = -26
     ambient_loudness_target = -36
     narration_loudness_target = -21
@@ -291,7 +298,7 @@ if args.scope == "all":
                       for section in paper_sections]
 
     # load all audio assets
-    print("Loading audio assets")
+    logging.info("Loading audio assets")
     # INTRO
     jingle_intro = load_at_volume("assets/audio/intro.wav", theme_target_loudness)
     background_intro = load_at_volume("assets/audio/daily-intro-bg.wav", background_loudness_target)
@@ -447,5 +454,5 @@ if args.scope == "all":
 
     # AUDIO FILE!
     program_audio_file = f"episode/prorgam-{now}.m4a"
-    print(f"Exporting the whole episode into {program_audio_file}")
+    logging.info(f"Exporting the whole episode into {program_audio_file}")
     program.export(program_audio_file, format="mp4", bitrate="256k")

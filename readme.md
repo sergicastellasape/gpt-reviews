@@ -1,4 +1,14 @@
-# GPT Reviews: an end-to-end* AI-generated podcast
+# 🎙️ GPT Reviews
+
+## An end-to-end* AI-generated podcast
+
+Listen:
+
+<img src="https://lh3.googleusercontent.com/uCn9RLCitLIaHYkIxzY-PvuErfWlEpTVU7xko6FOhbOi0ykPwNkInX2B2CwRmNNMgB5EHK-4Bs9DQUmnohdSdJan3fU7WofGGo1g3dqAIFg" alt="Spotify" class="xbGufb" style="width: 32px; height: 32px;" width="32" height="32"> 
+<img src="https://lh5.googleusercontent.com/Mb4Ai2ZsCUQPqFIc4z2rM1CgEDMR9v4Yc0eFydV6jpoXrWIgkBHcW4b8_Xte_cU1fcA2VNE2JY7nk43KUuNlIjct91mTUEkBmlkIlT8n3FM" alt="Link" class="xbGufb" style="width: 32px; height: 32px;" width="32" height="32">
+<img src="https://lh6.googleusercontent.com/IHtbTx7u577WFP5LEDkKmfFoiWKQo7jpFelBhr-ZnmjML0Kc5hmLg3fWTPXhHuEH1_uKQz4QSgm-8itmB3N8siwbYHDyTai393jZNzfIU78" alt="Link" class="xbGufb" style="width: 32px; height: 32px;" width="32" height="32">
+<img src="https://lh6.googleusercontent.com/aT--jCTr4izx_WrYSHLOOSz1M8BrFJ2sgP2nFozJvFryGbADduCIE-ogHbd-Yj0ZyLmss-tlNsJEomeD5Tt3LP6DM6R6uWwkhdi3csLenhc" alt="Link" class="xbGufb" style="width: 32px; height: 32px;" width="32" height="32">
+<img src="https://lh6.googleusercontent.com/aUv1TNrJUS1TnOz7V9_TZGPRKdlE6f5s_jTjttQBAssQQ1-N3XVoCBcD6M_dgs1EwGX303Sa_9veNeMEs8BBTIuCkBgqCOsTOmVpxK83iys" alt="Link" class="xbGufb" style="width: 32px; height: 32px;" width="32" height="32">
 
 _*well there's no such thing as end to end is there. You feed it the news/papers/blogs you want and can also do manual editing of the scripts easily._
 
@@ -32,9 +42,12 @@ It runs on my laptop.
 
 Okay so I tried to keep the code free from unnecessary abstractions, at the cost of some duplications and a long script that at least should be quite readable from the get-go.
 There are no classes, only functions in blocks which do things that are self explanatory.
+
 I thought about finding better ways to organize the code, but I think it only makes sense to do that organically once the project grows in complexity.
 No LangChain and no nothing. I just use plain strings for prompt and I create a way to interpolate them with variables just marked as $VARIABLE. For now that's enough as well.
+
 I avoid at all cost doing refinement calls to chatGPT (or whatever api). Responses should be a one-off + rule-based parsing. It might improve quality at some points but it's just much harder to debug and predict how consistent the LLM responses will be and so on... Besides, everything I could do with an interaction + refinement in chatGPT I can probably do in a single call to GPT-4, so I plan on migrating to that once I 
+
 Probably the most low-hanging fruit in terms of making the code more clean is creating abstractions for the audio editing: like wrapping the stuff i do repeatedly like normalization, adding background music with certain fades and so on.
 Still, it's a pain in the ass cause i want to have very fine-grained access to each audio file for settings like volume, so wrapping all the audio files in a dictionary or class for instance didn't make sense.
 So i load all those files as separate variables with semantically relevant names.

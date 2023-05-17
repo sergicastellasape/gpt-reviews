@@ -1,3 +1,4 @@
+import logging
 import os
 from pydub import AudioSegment
 from xml.etree.ElementTree import Element, SubElement, tostring
@@ -23,11 +24,11 @@ def speak(script,
                          speaker=speaker,
                          paragraph_silence=paragraph_silence,
                          sentence_silence=sentence_silence)
-        print(f"Recording audio into {audio_path}")
+        logging.info(f"Recording audio into {audio_path}")
         audio = ssml2audio(ssml)
         audio.export(audio_path, format="wav")
     else:
-        print(f"Loading audio from {audio_path}")
+        logging.info(f"Loading audio from {audio_path}")
         audio = AudioSegment.from_file(audio_path, format="wav")
     return audio
 
@@ -40,7 +41,7 @@ def speak_conversation(script,
                        paragraph_silence,
                        sentence_silence):
     if not os.path.exists(audio_path):
-        print(f"Recording conversation into {audio_path}")
+        logging.info(f"Recording conversation into {audio_path}")
         ssml = convo2ssml(script,
                           host=host,
                           guest=guest,
@@ -50,7 +51,7 @@ def speak_conversation(script,
         section = ssml2audio(ssml)
         section.export(audio_path, format="wav")
     else:
-        print(f"Loading conversation from {audio_path}")
+        logging.info(f"Loading conversation from {audio_path}")
         section = AudioSegment.from_file(audio_path, format="wav")
         # sections.append(section)
     return section
@@ -101,7 +102,7 @@ def convo2ssml(text,
         elif turn[0:3] == delimiter["guest"]:
             convo_tup.append(("guest", turn.split(delimiter["guest"])[-1]))
         else:
-            print("Warning! skipping turn as no person was found")
+            logging.warning(f"Skipping turn as no person was found in turn: {turn}")
 
     speaking_attr = boilerplate_ssml
     root = Element('speak', speaking_attr)
