@@ -7,10 +7,10 @@ import randfacts
 import pyjokes
 from pydub import AudioSegment
 
-from utils import load_content
-from writing import write
-from recording import speak, speak_conversation
-from editing import load_at_volume, adjust_volume, ms_to_time
+from src.utils import load_content
+from src.writing import write
+from src.recording import speak, speak_conversation
+from src.editing import load_at_volume, adjust_volume, ms_to_time
 
 parser = argparse.ArgumentParser(description="Main Script for GPT Reviews")
 parser.add_argument("scope", choices=["content", "scripts", "recordings", "all"],
@@ -67,7 +67,7 @@ else:
 print(f"Usind date: {today}")
 
 if args.scope in ["scripts", "recordings", "all"]:
-    # in chronological order
+    # in chronological order, comments make it easier to skim
     # INTRO
     topics = "\n".join(item["title"] for item in content)
     gio_intro = write(system_prompt=prompts['system_prompt_gio'],
@@ -293,48 +293,31 @@ if args.scope == "all":
     # load all audio assets
     print("Loading audio assets")
     # INTRO
-    jingle_intro = load_at_volume(
-        "assets/audio/intro.wav", theme_target_loudness)
-    background_intro = load_at_volume(
-        "assets/audio/daily-intro-bg.wav", background_loudness_target)
+    jingle_intro = load_at_volume("assets/audio/intro.wav", theme_target_loudness)
+    background_intro = load_at_volume("assets/audio/daily-intro-bg.wav", background_loudness_target)
 
     # NEWS
-    jingle_news_and_background_1 = load_at_volume(
-        "assets/audio/news-start.wav", narration_loudness_target - 4)
-    jingle_news_and_background_2 = load_at_volume(
-        "assets/audio/news-transition.wav", narration_loudness_target - 4)
-    jingle_news_out = load_at_volume(
-        "assets/audio/news-out.wav", narration_loudness_target - 2)
+    jingle_news_and_background_1 = load_at_volume("assets/audio/news-start.wav", narration_loudness_target - 4)
+    jingle_news_and_background_2 = load_at_volume("assets/audio/news-transition.wav", narration_loudness_target - 4)
+    jingle_news_out = load_at_volume("assets/audio/news-out.wav", narration_loudness_target - 2)
 
     # READS
-    background_reads = load_at_volume(
-        "assets/audio/reads-bg.wav", narration_loudness_target - 4
-    )
-    jingle_reads_jout = load_at_volume(
-        "assets/audio/reads-out.wav", narration_loudness_target - 4
-    )
+    background_reads = load_at_volume("assets/audio/reads-bg.wav", narration_loudness_target - 4)
+    jingle_reads_jout = load_at_volume("assets/audio/reads-out.wav", narration_loudness_target - 4)
 
     # PAPERS
-    jingle_paper_switch = load_at_volume(
-        "assets/audio/reversed-guitar.wav", narration_loudness_target)
+    jingle_paper_switch = load_at_volume("assets/audio/reversed-guitar.wav", narration_loudness_target)
 
     # FAKE SPONSOR
-    fake_sponsor_jingle = load_at_volume(
-        "assets/audio/fake-sponsor-jingle.wav", narration_loudness_target)
-    fake_sponsor_jingle_out = load_at_volume(
-        "assets/audio/fake-sponsor-jingle-out.wav", narration_loudness_target)
-    ad_music = load_at_volume(f"assets/audio/ad-music.m4a",
-                              background_loudness_target)
+    fake_sponsor_jingle = load_at_volume("assets/audio/fake-sponsor-jingle.wav", narration_loudness_target)
+    fake_sponsor_jingle_out = load_at_volume("assets/audio/fake-sponsor-jingle-out.wav", narration_loudness_target)
+    ad_music = load_at_volume(f"assets/audio/ad-music.m4a", background_loudness_target)
 
     # OUTRO
-    jingle_outro = load_at_volume(
-        "assets/audio/outro.wav", theme_target_loudness)
-    background_outro = load_at_volume(
-        "assets/audio/daily-outro-no-drums.wav", background_loudness_target + 6)
-    background_outro_with_drums = load_at_volume(
-        "assets/audio/daily-outro-drums.wav", background_loudness_target + 6)
-    bass_finale = load_at_volume(
-        "assets/audio/bass-out.wav", background_loudness_target + 6)
+    jingle_outro = load_at_volume("assets/audio/outro.wav", theme_target_loudness)
+    background_outro = load_at_volume("assets/audio/daily-outro-no-drums.wav", background_loudness_target + 6)
+    background_outro_with_drums = load_at_volume("assets/audio/daily-outro-drums.wav", background_loudness_target + 6)
+    bass_finale = load_at_volume("assets/audio/bass-out.wav", background_loudness_target + 6)
 
     ################################################################
     ################## EDITING + DESCRIPTION!! #####################

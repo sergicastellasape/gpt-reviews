@@ -1,4 +1,4 @@
-# upload on azure blob
+# script just to upload output to my azure blob container
 import argparse
 import os
 from azure.storage.blob import BlobServiceClient

@@ -6,6 +6,7 @@ assets/audio/*
 assets-today/*
 episode/*
 notebooks/*
+src/__pycache__/*
 .DS_Store
 assets/deprecated/*
 content.txt

@@ -4,7 +4,7 @@ import feedparser
 import requests
 import PyPDF2
 
-from writing import generate
+from src.writing import generate
 
 
 def load_content():
