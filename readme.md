@@ -2,14 +2,6 @@
 
 ## An end-to-end* AI-generated podcast
 
-Listen:
-
-<img src="https://lh3.googleusercontent.com/uCn9RLCitLIaHYkIxzY-PvuErfWlEpTVU7xko6FOhbOi0ykPwNkInX2B2CwRmNNMgB5EHK-4Bs9DQUmnohdSdJan3fU7WofGGo1g3dqAIFg" alt="Spotify" class="xbGufb" style="width: 32px; height: 32px;" width="32" height="32"> 
-<img src="https://lh5.googleusercontent.com/Mb4Ai2ZsCUQPqFIc4z2rM1CgEDMR9v4Yc0eFydV6jpoXrWIgkBHcW4b8_Xte_cU1fcA2VNE2JY7nk43KUuNlIjct91mTUEkBmlkIlT8n3FM" alt="Link" class="xbGufb" style="width: 32px; height: 32px;" width="32" height="32">
-<img src="https://lh6.googleusercontent.com/IHtbTx7u577WFP5LEDkKmfFoiWKQo7jpFelBhr-ZnmjML0Kc5hmLg3fWTPXhHuEH1_uKQz4QSgm-8itmB3N8siwbYHDyTai393jZNzfIU78" alt="Link" class="xbGufb" style="width: 32px; height: 32px;" width="32" height="32">
-<img src="https://lh6.googleusercontent.com/aT--jCTr4izx_WrYSHLOOSz1M8BrFJ2sgP2nFozJvFryGbADduCIE-ogHbd-Yj0ZyLmss-tlNsJEomeD5Tt3LP6DM6R6uWwkhdi3csLenhc" alt="Link" class="xbGufb" style="width: 32px; height: 32px;" width="32" height="32">
-<img src="https://lh6.googleusercontent.com/aUv1TNrJUS1TnOz7V9_TZGPRKdlE6f5s_jTjttQBAssQQ1-N3XVoCBcD6M_dgs1EwGX303Sa_9veNeMEs8BBTIuCkBgqCOsTOmVpxK83iys" alt="Link" class="xbGufb" style="width: 32px; height: 32px;" width="32" height="32">
-
 _*well there's no such thing as end to end is there. You feed it the news/papers/blogs you want and can also do manual editing of the scripts easily._
 
 This is the code I use to generate the GPT Reviews podcast on a daily basis (Mon-Fri).
