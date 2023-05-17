@@ -4,11 +4,11 @@ Listen on:
 </p>
 <p align="center">
   <a href="https://open.spotify.com/show/2xvBhAct7kGYd6h9b8txhq?si=a36ba38be6074150"><img src="https://github.com/sergicastellasape/semantic-compression/assets/33417180/666172aa-9f2d-4c72-81c5-9efb45c7b73c" alt="Spotify" height="40"></a> 
-  <a href="https://music.amazon.co.uk/podcasts/b32e4420-6d57-44ed-915d-e68316217df6/gpt-reviews" target="_blank"><img src="https://lh4.googleusercontent.com/eJGwTHoDMP64ihx8R066lCC1u-_1y0ZalTXAUBeZQK9HqSOo3rzXjchubITji8gMOVmmjCEZDykEfP0Pq4yBC5Iaq-kB5nIlXEQvLPA0h7E" alt="Link" height="40"></a>
-  <a href="https://podcasts.apple.com/es/podcast/gpt-reviews/id1687287441"><img src="https://lh3.googleusercontent.com/3aYNpkvq5v-gVHoeoVJ610vo9zi2iITpJby9JJ2j68d3TPS6-zOdIVOIUkyIS_MgMBZZBsQYVoDAE-fHzRC28NLRGxliE9E39BkwN-Gpqng" alt="Link" height="40"></a>
-  <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy9lMDgwOWM0OC9wb2RjYXN0L3Jzcw"><img src="https://lh3.googleusercontent.com/XdTEkPqSKW7oMjHHA1vQD4rM9Q9yK7VDmJjX9I6ilflL8pNMnpGHZTeO-a0h0IN0GBLZVssRzhBSUtQhISLXxd9mylZIp9RpuJG45SegiKs" alt="Link" height="40"></a>
-  <a href="https://pca.st/hxzcjo0l"><img src="https://lh5.googleusercontent.com/CrfeXN4C27n6w2Nke2g9IACzYcWKCTs4ZGnynHRENOEzbBrg3z3T-wkUrFyzFCweU3Bw7fedYrGOri4ROkOBsjoKce3whkxjXKHLiQWz7IU" alt="Link" class="xbGufb" height="40"></a>
-  <a href="https://twitter.com/earkindtech"><img src="https://lh6.googleusercontent.com/g3p9SV1AfEiiJeaitAcOxQ5Y4gDqdkGc90MQTGNH3YP7arPkK07h6FCpihpX5Gcd7xgJ_9HtYMKPe_l1jBWbOgmXMthNLWWowIonEy580Yo" alt="Twitter" height="40"></a>
+  <a href="https://music.amazon.co.uk/podcasts/b32e4420-6d57-44ed-915d-e68316217df6/gpt-reviews"><img src="https://github.com/sergicastellasape/semantic-compression/assets/33417180/560e8295-07e0-4bb0-9457-530f066c82d3" alt="Amazon" height="40"></a>
+  <a href="https://podcasts.apple.com/es/podcast/gpt-reviews/id1687287441"><img src="https://github.com/sergicastellasape/semantic-compression/assets/33417180/f1cfcf78-059b-4e02-8e04-2898d12a1ecb" alt="Apple" height="40"></a>
+  <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy9lMDgwOWM0OC9wb2RjYXN0L3Jzcw"><img src="https://github.com/sergicastellasape/semantic-compression/assets/33417180/66a010f8-15d1-4812-bdc4-f111face6fbc" alt="Google" height="40"></a>
+  <a href="https://pca.st/hxzcjo0l"><img src="https://github.com/sergicastellasape/semantic-compression/assets/33417180/97c54422-4ef9-4485-9a86-2c406df19e7c" alt="Pocketcasts" class="xbGufb" height="40"></a>
+  <a href="https://twitter.com/earkindtech"><img src="https://github.com/sergicastellasape/semantic-compression/assets/33417180/7dfc1c17-0073-4727-8f1d-a4a0da6a5142" alt="Twitter" height="40"></a>
 </p>
 
 _*well there's no such thing as end to end is there. You feed it the news/papers/blogs you want and can also do manual editing of the scripts easily._
