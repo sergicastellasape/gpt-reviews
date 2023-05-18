@@ -7,6 +7,7 @@ import randfacts
 import logging
 import pyjokes
 from pydub import AudioSegment
+import sys
 
 from src.utils import load_content
 from src.writing import write
@@ -23,8 +24,10 @@ parser.add_argument('--log', type=str, default="INFO", dest="loglevel",
                     help="Speciify the log level from info, warning, debug, error")
 args = parser.parse_args()
 
-logging.basicConfig(filename=f'{str(datetime.now())[:-7]}.log', encoding='utf-8',
-                    format='%(levelname)s:%(name)s: %(asctime)s %(message)s', datefmt='%I:%M:%S %p',
+logging.basicConfig(handlers=[logging.FileHandler(f"{str(datetime.now())[:-7]}.log"),logging.StreamHandler()],
+                    encoding='utf-8',
+                    format='%(levelname)s:%(name)s: %(asctime)s %(message)s',
+                    datefmt='%I:%M:%S %p',
                     level=getattr(logging, args.loglevel.upper()))
 
 ################################################################
