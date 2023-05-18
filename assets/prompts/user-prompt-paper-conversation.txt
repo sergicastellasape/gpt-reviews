@@ -7,4 +7,6 @@ Paper number: $PROGRESS
 
 To begin with, provide 3 interesting questions one could ask to introduce this paper.
 Then use those 3 questions to generate a short podcast script section between Giovani (G) and Belinda (B).
-Use the paper number to introduce it. Avoid filler expressions and bullshit, cut to the chase.
+Use the paper number to introduce it.
+Reference the comments if they are interesting.
+Avoid filler expressions and bullshit, cut to the chase.

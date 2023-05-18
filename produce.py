@@ -363,8 +363,8 @@ if args.scope == "all":
             background = jingle_news_and_background_1.fade(
                 to_gain=-11, start=5500, duration=1000)
         else:
-            news_section = AudioSegment.silent(
-                duration=3500).append(news_section, crossfade=5)
+            news_section = AudioSegment.silent(duration=3500)\
+                                       .append(news_section, crossfade=5)
             background = jingle_news_and_background_2.fade(
                 to_gain=-11, start=3000, duration=1000)
         news_section = news_section.overlay(background, loop=True)
@@ -377,8 +377,8 @@ if args.scope == "all":
         program = program.append(transition1_section)
         for i, read_section in enumerate(reads_sections):
             section = AudioSegment.silent(duration=4000)\
-                .append(read_section, crossfade=5)\
-                .append(AudioSegment.silent(duration=500), crossfade=0)
+                                  .append(read_section, crossfade=5)\
+                                  .append(AudioSegment.silent(duration=500), crossfade=0)
             background = background_reads.fade(
                 to_gain=-21, start=4500, duration=1000)
             section = section.overlay(
@@ -401,8 +401,8 @@ if args.scope == "all":
     program = program.append(sponsor_section)
 
     #### TRANSITION ####
-    transition_section = AudioSegment.silent(
-        duration=1000).append(transition_section, crossfade=0)
+    transition_section = AudioSegment.silent(duration=1000)\
+                                     .append(transition_section, crossfade=0)
     program = program.append(transition_section, crossfade=1000)
 
     #### PAPERS ####
@@ -448,8 +448,7 @@ if args.scope == "all":
     # POD DESCRIPTION!
     with open("episode/description.html", "w") as f:
         # this converts the markdown into html
-        f.write(markdown.markdown(pod_description)
-                )
+        f.write(markdown.markdown(pod_description))
     with open("episode/proposed-title.txt", "w") as f:
         f.write(proposed_title)
 

@@ -6,6 +6,7 @@ News section progress: $PROGRESS
 To begin with, provide 3 interesting points Giovani could ask to introduce the newstory.
 Then use them to generate a short podcast script section between Giovani (G) and Robert (R).
 Avoid filler words like "interesting", "great", "good".
+Use the paper number to introduce it.
 Giovani is charismatic and enthusiastic. Robert is grumpy and sarcastic.
 
 [BULLETPOINTS]

@@ -35,7 +35,7 @@ def load_content():
             # the pop() is convenient but i'm not sure i like it...
             # it's changing the state of sentences, then the index 0 will be the
             # title or URL.. it's convenient
-            type_ = type_map[sentences.pop(0).strip()]
+            type_ = type_map[sentences.pop(0)]
             if type_ == "paper":
                 id = sentences[0].replace("https://arxiv.org/abs/", "")
                 content.append({
@@ -84,6 +84,8 @@ def get_arxiv_metadata(id, parse_orgs=True):
 
 def get_org_from_id(id):
     # Gets orgs from parsing + openais
+    # bit hacky cause i wanna generalize this to
+    # more content but it's okay for now
     fname = f"assets-today/pdfs/{id}.pdf"
     if not os.path.exists(fname):
         url = f"https://arxiv.org/pdf/{id}.pdf"
