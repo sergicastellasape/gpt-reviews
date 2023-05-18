@@ -2,6 +2,7 @@ import logging
 import openai
 import os
 import re
+import time
 
 openai.api_key = os.getenv('OPENAIKEY')
 
@@ -35,11 +36,21 @@ def generate(system_prompt, user_prompt, temperature=0.7):
         {"role": "user", "content": user_prompt}
     ]
     logging.debug(f"Calling OpenAI with {messages}")
-    completion = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=messages,
-        temperature=temperature
-    )
+    retries = 3  # sometimes openAI just fails
+    for i in range(retries):
+        try:
+            completion = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=messages,
+                temperature=temperature
+            )
+        except Exception as e:
+            if i == (retries - 1):
+                raise
+            else:
+                logging.info(f"Retrying after exception {e}")
+                time.sleep(3)
+                continue
     return completion.choices[0].message['content']
 
 
