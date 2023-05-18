@@ -15,14 +15,25 @@ _*well there's no such thing as end to end is there. You feed it the news/papers
 
 This is the code I use to generate the GPT Reviews podcast on a daily basis (Mon-Fri).
 
+# Structure of the code
+
+- `produce.py`
+
+- `src/` all functions to do stuff. It's all functions, no classes. I thought it was unnecessary at first. Probably will make sense soon as the project grows in complexity.
+
+[ETCETERA]
+
+
 # How to run it yourselef
 - You need an internet connection, LLMs and Text-to-speech doesn't run locally. 
-- Getting audio assets into `assets/audio` from this public drive folder. They are .wav files to minimize encoding-decoding in read-write. The downside is they're pretty big, so I'm not committing them to the repo.
+- Getting audio assets into `assets/audio` [here](https://drive.google.com/drive/folders/1XJpVxs0uN9zCgUnUov5mmCf6ooLyZBmM?usp=share_link). They are .wav files to minimize encoding-decoding in read-write. The downside is they're pretty big, so I'm not committing them to the repo.
 - Keys for openai and azure cognitive services should either be hardcocded (at your own risk) or set them as env variables as `OPENAIKEY` and `AZURE_SPEECH_KEY` respectively.
 Yes the casing and underscoring is not consistent idk i probably set them up on different days and didn't bother changing them to something consistent later on.
 - Hey sometimes the output parsing might fail a bit, which is why it's handy to save the scripts in .txt. You can look at them and fix things if you want.
 It's often useful to reduce small wrong anoyances, such as Gio saying "our final news story" when it's story 2/3. ChatGPT is not that great at following many instructions so it's hard to make it do what i want it to do.
 I'm quite confident GPT-4 fixes a lot of these things (I've played a bit with it but don't have access to it in my Earkind account yet...). So i totally plan on making the switch, perhaps for debugging it'll be expensive, but for daily episodes, hell yes.
+
+- the files in `assets-today/` represent the _cache_ of the program. If a something needs to be generated, it'll always try to load it from there. Actually now that i write it, i can probably clean up the code using the cache abstraction.
 
 # `content.txt` structure!!!
 The principle of how you feed data into the whole thing is the following.
@@ -53,3 +64,8 @@ Probably the most low-hanging fruit in terms of making the code more clean is cr
 Still, it's a pain in the ass cause i want to have very fine-grained access to each audio file for settings like volume, so wrapping all the audio files in a dictionary or class for instance didn't make sense.
 So i load all those files as separate variables with semantically relevant names.
 There's probably a better way to do it, but it's okay for now.
+
+# Troubleshooting
+
+
+- Pydub requires `ffmpeg` to encode/decode audio and that's a bit of a pain in the ass cause there's 48 ways out there to install it and none of them seem plug un play unless... `brew install ffmpeg`. So try that out, after installing the requirements if you don't have it. 
