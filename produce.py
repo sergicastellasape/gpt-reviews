@@ -6,13 +6,11 @@ import markdown
 import randfacts
 import logging
 import pyjokes
-from pydub import AudioSegment
-import sys
 
 from src.utils import load_content
 from src.writing import write
 from src.recording import speak, speak_conversation
-from src.editing import load_at_volume, adjust_volume, ms_to_time
+from src.audio import AudioSegmentPlus
 
 parser = argparse.ArgumentParser(description="Main Script for GPT Reviews")
 parser.add_argument("scope", choices=["content", "scripts", "recordings", "all"],
@@ -24,10 +22,10 @@ parser.add_argument('--log', type=str, default="INFO", dest="loglevel",
                     help="Speciify the log level from info, warning, debug, error")
 args = parser.parse_args()
 
-logging.basicConfig(handlers=[logging.FileHandler(f"{str(datetime.now())[:-7]}.log"),logging.StreamHandler()],
-                    encoding='utf-8',
-                    format='%(levelname)s:%(name)s: %(asctime)s %(message)s',
-                    datefmt='%I:%M:%S %p',
+logging.basicConfig(handlers=[logging.FileHandler(f"{str(datetime.now())[:-7]}.log"), logging.StreamHandler()],
+                    encoding="utf-8",
+                    format="%(levelname)s:%(name)s: %(asctime)s %(message)s",
+                    datefmt="%I:%M:%S %p",
                     level=getattr(logging, args.loglevel.upper()))
 
 ################################################################
@@ -277,54 +275,16 @@ if args.scope in ["recordings", "all"]:
 ##################### AUDIO HOUSEKEEPING! ######################
 
 if args.scope == "all":
-    # audio editing after all clips shave been created
-    logging.info("WORKING ON THE AUDIO EDITING")
-    background_loudness_target = -26
-    ambient_loudness_target = -36
-    narration_loudness_target = -21
-    theme_target_loudness = -15
 
-    # adjust all narration volumes
-    intro_section = adjust_volume(intro_section, narration_loudness_target)
-    outro_section = adjust_volume(outro_section, narration_loudness_target)
-    ad_section = adjust_volume(ad_section, narration_loudness_target)
-    transition1_section = adjust_volume(transition1_section, narration_loudness_target)
-    transition_section = adjust_volume(transition_section,narration_loudness_target)
-    news_sections = [adjust_volume(section, narration_loudness_target)
-                     for section in news_sections]
-    reads_sections = [adjust_volume(section, narration_loudness_target)
-                      for section in reads_sections]
-    paper_sections = [adjust_volume(section, narration_loudness_target)
-                      for section in paper_sections]
-
-    # load all audio assets
-    logging.info("Loading audio assets")
-    # INTRO
-    jingle_intro = load_at_volume("assets/audio/intro.wav", theme_target_loudness)
-    background_intro = load_at_volume("assets/audio/daily-intro-bg.wav", background_loudness_target)
-
-    # NEWS
-    jingle_news_and_background_1 = load_at_volume("assets/audio/news-start.wav", narration_loudness_target - 4)
-    jingle_news_and_background_2 = load_at_volume("assets/audio/news-transition.wav", narration_loudness_target - 4)
-    jingle_news_out = load_at_volume("assets/audio/news-out.wav", narration_loudness_target - 2)
-
-    # READS
-    background_reads = load_at_volume("assets/audio/reads-bg.wav", narration_loudness_target - 4)
-    jingle_reads_jout = load_at_volume("assets/audio/reads-out.wav", narration_loudness_target - 4)
-
-    # PAPERS
-    jingle_paper_switch = load_at_volume("assets/audio/reversed-guitar.wav", narration_loudness_target)
-
-    # FAKE SPONSOR
-    fake_sponsor_jingle = load_at_volume("assets/audio/fake-sponsor-jingle.wav", narration_loudness_target)
-    fake_sponsor_jingle_out = load_at_volume("assets/audio/fake-sponsor-jingle-out.wav", narration_loudness_target)
-    ad_music = load_at_volume(f"assets/audio/ad-music.m4a", background_loudness_target)
-
-    # OUTRO
-    jingle_outro = load_at_volume("assets/audio/outro.wav", theme_target_loudness)
-    background_outro = load_at_volume("assets/audio/daily-outro-no-drums.wav", background_loudness_target + 6)
-    background_outro_with_drums = load_at_volume("assets/audio/daily-outro-drums.wav", background_loudness_target + 6)
-    bass_finale = load_at_volume("assets/audio/bass-out.wav", background_loudness_target + 6)
+    from src.audio import (
+        loudness_targets,
+        jingle_intro, background_intro,
+        jingle_news_and_background_1, jingle_news_and_background_2, jingle_news_out,
+        background_reads, jingle_reads_out,
+        jingle_paper_switch,
+        fake_sponsor_jingle, fake_sponsor_jingle_out, ad_music,
+        jingle_outro, background_outro, background_outro_with_drums, bass_finale
+    )
 
     ################################################################
     ################## EDITING + DESCRIPTION!! #####################
@@ -338,37 +298,36 @@ if args.scope == "all":
                              transition2,
                              *paper_scripts,
                              gio_outro])
-    highlights = write("",
+    highlights = write(system_prompt="",
                        user_prompt_template=prompts['user_prompt_pod_highlights'],
                        substitutions={"$SCRIPT": all_scripts},
                        script_path="assets-today/scripts/highlights.txt",
                        temperature=0,
                        parsing_options={"delimiter": "[HIGHLIGHTS]"})
-    pod_description = f"{highlights}\n\nContact: [sergi@earkind.com](mailto:sergi@earkind.com)\n\nTimestamps:"
+    pod_description = f"{highlights}\n\nContact: \
+        [sergi@earkind.com](mailto:sergi@earkind.com)\n\nTimestamps:"
 
-    program = AudioSegment.empty()
+    program = AudioSegmentPlus.empty()
 
     #### INTRO ####
     intro_section = intro_section.overlay(background_intro, loop=True)
     program = program.append(jingle_intro, crossfade=0)
 
-    pod_description += f"\n\n{ms_to_time(len(program))} Introduction"
+    pod_description += f"\n\n{program.get_timestamp()} Introduction"
     program = program.append(intro_section, crossfade=10)
 
     #### NEWS ####
     for i, news_section in enumerate(news_sections):
         if i == 0:
-            news_section = AudioSegment.silent(duration=6000)\
-                                       .append(news_section, crossfade=5)
+            news_section = news_section.pad(left=6000)
             background = jingle_news_and_background_1.fade(
                 to_gain=-11, start=5500, duration=1000)
         else:
-            news_section = AudioSegment.silent(duration=3500)\
-                                       .append(news_section, crossfade=5)
+            news_section = news_section.pad(left=3500)
             background = jingle_news_and_background_2.fade(
                 to_gain=-11, start=3000, duration=1000)
         news_section = news_section.overlay(background, loop=True)
-        pod_description += f"\n\n{ms_to_time(len(program))} [{news[i]['title']}]({news[i]['url']})"
+        pod_description += f"\n\n{program.get_timestamp()} [{news[i]['title']}]({news[i]['url']})"
         program = program.append(news_section, crossfade=50)
     program = program.append(jingle_news_out, crossfade=50)
 
@@ -376,22 +335,18 @@ if args.scope == "all":
     if reads_scripts:
         program = program.append(transition1_section)
         for i, read_section in enumerate(reads_sections):
-            section = AudioSegment.silent(duration=4000)\
-                                  .append(read_section, crossfade=5)\
-                                  .append(AudioSegment.silent(duration=500), crossfade=0)
+            section = read_section.pad(left=4000, right=500)
             background = background_reads.fade(
                 to_gain=-21, start=4500, duration=1000)
             section = section.overlay(
                 background, loop=True).fade_out(duration=100)
-            pod_description += f"\n\n{ms_to_time(len(program))} [{reads[i]['title']}]({reads[i]['url']})"
+            pod_description += f"\n\n{program.get_timestamp()} [{reads[i]['title']}]({reads[i]['url']})"
             program = program.append(section, crossfade=1000)
-    program = program.append(jingle_reads_jout, crossfade=1000)
+    program = program.append(jingle_reads_out, crossfade=1000)
 
     #### ADS ####
-    pod_description += f"\n\n{ms_to_time(len(program))} Fake sponsor"
-    ad_section = AudioSegment.silent(duration=3000)\
-                             .append(ad_section)\
-                             .append(AudioSegment.silent(duration=5000))
+    pod_description += f"\n\n{program.get_timestamp()} Fake sponsor"
+    ad_section = ad_section.pad(left=3000, right=5000)
     ad_section = ad_section.overlay(ad_music, loop=True)\
                            .fade_out(duration=4000)
 
@@ -401,19 +356,17 @@ if args.scope == "all":
     program = program.append(sponsor_section)
 
     #### TRANSITION ####
-    transition_section = AudioSegment.silent(duration=1000)\
-                                     .append(transition_section, crossfade=0)
+    transition_section = transition_section.pad(left=1000)
     program = program.append(transition_section, crossfade=1000)
 
     #### PAPERS ####
     program = program.append(jingle_paper_switch, crossfade=700)
     for i, paper_section in enumerate(paper_sections):
         fname = f"assets/audio/ambient-{random.randrange(1,6)}.wav"
-        background_ambience = load_at_volume(fname, ambient_loudness_target)
-
+        background_ambience = AudioSegmentPlus.from_file(fname).to_volume(loudness_targets["ambient"])
         paper_section = paper_section.overlay(background_ambience, loop=True)
 
-        pod_description += f"\n\n{ms_to_time(len(program))} [{papers[i]['title']}]({papers[i]['url']})"
+        pod_description += f"\n\n{program.get_timestamp()} [{papers[i]['title']}]({papers[i]['url']})"
         program = program.append(paper_section, crossfade=20)
         program = program.append(jingle_paper_switch, crossfade=700)
 
@@ -421,14 +374,14 @@ if args.scope == "all":
     # outro jingle is the same as the intro but with different drumfill
     program = program.append(jingle_outro, crossfade=10)
 
-    pod_description += f"\n\n{ms_to_time(len(program))} Outro"
+    pod_description += f"\n\n{program.get_timestamp()} Outro"
 
     # then add the background chill that transitions to drums
     repetitions = int(len(outro_section) / len(background_outro))
     background = background_outro.append(
         background_outro_with_drums * repetitions, crossfade=10)
 
-    outro_section = outro_section.append(AudioSegment.silent(duration=7000))
+    outro_section = outro_section.pad(right=7000)
     outro = background.overlay(outro_section)
 
     program = program.append(outro, crossfade=10)
