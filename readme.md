@@ -14,6 +14,7 @@ Listen on:
 This is the code I use to generate the GPT Reviews podcast on a daily basis (Mon-Fri).
 Based on a bunch of raw news, papers, and random content it generates a podacst episode explaining and commenting on it.
 Learn more about the project on the Earkind website, or on this blog post about my thinking behind it.
+
 This is an ongoing personal project, code changes can be quick and messy! If you like this or have concrete ideas on how to imrpve it please reach out via [sergi@earkind.com](mailto:sergi@earkind.com) 🫶.
 
 # How to run it yourselef
