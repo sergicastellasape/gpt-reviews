@@ -26,7 +26,7 @@ logging.basicConfig(handlers=[logging.FileHandler(f"{str(datetime.now())[:-7]}.l
                     encoding="utf-8",
                     format="%(levelname)s:%(name)s: %(asctime)s %(message)s",
                     datefmt="%I:%M:%S %p",
-                    level=getattr(logging, args.loglevel.upper()))
+                    level=logging.INFO) #level=getattr(logging, args.loglevel.upper()))
 
 ################################################################
 ########################## PREPROCESS! #########################
@@ -110,7 +110,7 @@ if args.scope in ["scripts", "recordings", "all"]:
     transition_1 = write(system_prompt=prompts['system_prompt_reads'],
                          user_prompt_template=prompts['user_prompt_reads_transition'],
                          substitutions={"$TOPICS": topics},
-                         script_path="assets-today/scripts/transition_1.txt",
+                         script_path="assets-today/scripts/transition-1.txt",
                          temperature=1,
                          parsing_options={"delete_gio": True})
     
@@ -153,7 +153,7 @@ if args.scope in ["scripts", "recordings", "all"]:
     transition_2 = write(system_prompt=prompts['system_prompt_gio'],
                          user_prompt_template=prompts['user_prompt_transition'],
                          substitutions={"$PAPERTITLES": titles, "$AD": ad_script},
-                         script_path="assets-today/scripts/transition_2.txt",
+                         script_path="assets-today/scripts/transition-2.txt",
                          temperature=1,
                          parsing_options={})
 
@@ -376,11 +376,10 @@ if args.scope == "all":
 
     # then add the background chill that transitions to drums
     repetitions = int(len(outro_section) / len(outro_bg))
-    background = outro_bg.append(
+    outro_bg = outro_bg.append(
         outro_bg_drums * repetitions, crossfade=10)
 
-    outro_section = outro_section.pad(right=7000)
-    outro = background.overlay(outro_section)
+    outro = outro_bg.overlay(outro_section)
 
     program = program.append(outro, crossfade=10)
     program = program.append(outro_bass, crossfade=10)
