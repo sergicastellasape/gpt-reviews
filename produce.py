@@ -10,7 +10,7 @@ import pyjokes
 from src.utils import load_content
 from src.writing import write
 from src.recording import speak, speak_conversation
-from src.audio import AudioSegmentPlus
+from src.audio import AudioSegment
 
 parser = argparse.ArgumentParser(description="Main Script for GPT Reviews")
 parser.add_argument("scope", choices=["content", "scripts", "recordings", "all"],
@@ -26,7 +26,7 @@ logging.basicConfig(handlers=[logging.FileHandler(f"{str(datetime.now())[:-7]}.l
                     encoding="utf-8",
                     format="%(levelname)s:%(name)s: %(asctime)s %(message)s",
                     datefmt="%I:%M:%S %p",
-                    level=logging.INFO) #level=getattr(logging, args.loglevel.upper()))
+                    level=getattr(logging, args.loglevel.upper()))
 
 ################################################################
 ########################## PREPROCESS! #########################
@@ -282,7 +282,7 @@ if args.scope == "all":
         intro_theme, intro_bg,
         news_theme_first, news_theme_rest, news_theme_out,
         reads_theme, reads_theme_out,
-        paper_switch,
+        paper_switch, paper_ambiences,
         fake_sponsor_jingle, fake_sponsor_jingle_out, ad_music,
         outro_theme, outro_bg, outro_bg_drums, outro_bass
     )
@@ -305,7 +305,7 @@ if args.scope == "all":
     pod_description = f"{highlights}\n\nContact: \
         [sergi@earkind.com](mailto:sergi@earkind.com)\n\nTimestamps:"
 
-    program = AudioSegmentPlus.empty()
+    program = AudioSegment.empty()
 
     #### INTRO ####
     intro_section = intro_section.overlay(intro_bg, loop=True)
@@ -360,9 +360,8 @@ if args.scope == "all":
     #### PAPERS ####
     program = program.append(paper_switch, crossfade=700)
     for i, paper_section in enumerate(paper_sections):
-        fname = f"assets/audio/ambient-{random.randrange(1,6)}.wav"
-        background_ambience = AudioSegmentPlus.from_file(fname).to_volume(loudness_targets["ambient"])
-        paper_section = paper_section.overlay(background_ambience, loop=True)
+        ambience = random.choice(paper_ambiences)
+        paper_section = paper_section.overlay(ambience, loop=True)
 
         pod_description += f"\n\n{program.get_timestamp()} [{papers[i]['title']}]({papers[i]['url']})"
         program = program.append(paper_section, crossfade=20)

@@ -4,7 +4,7 @@ from xml.etree.ElementTree import Element, SubElement, tostring
 
 import azure.cognitiveservices.speech as speechsdk
 
-from src.audio import AudioSegmentPlus, loudness_targets
+from src.audio import AudioSegment, loudness_targets
 
 azure_speech_key = os.getenv('AZURE_SPEECH_KEY')
 boilerplate_ssml = {
@@ -32,7 +32,7 @@ def speak(script,
         audio.export(audio_path, format="wav")
     else:
         logging.info(f"Loading audio from {audio_path}")
-        audio = AudioSegmentPlus.from_file(audio_path, format="wav")
+        audio = AudioSegment.from_file(audio_path, format="wav")
     return audio
 
 
@@ -55,7 +55,7 @@ def speak_conversation(script,
         section.export(audio_path, format="wav")
     else:
         logging.info(f"Loading conversation from {audio_path}")
-        section = AudioSegmentPlus.from_file(audio_path, format="wav")
+        section = AudioSegment.from_file(audio_path, format="wav")
     return section
 
 
@@ -68,7 +68,7 @@ def ssml2audio(ssml, volume=narration_loudness_target):
         speech_config=speech_config,
         audio_config=None)
     result = synthesizer.speak_ssml_async(ssml).get()
-    return AudioSegmentPlus(result.audio_data).to_volume(loudness_targets["narration"])
+    return AudioSegment(result.audio_data).to_volume(loudness_targets["narration"])
 
 
 def text2ssml(text, speaker, paragraph_silence=200, sentence_silence=150):

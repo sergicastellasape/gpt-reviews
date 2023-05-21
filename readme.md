@@ -17,46 +17,53 @@ Learn more about the project on the Earkind website, or on this blog post about 
 
 This is an ongoing personal project, code changes can be quick and messy! If you like this or have concrete ideas on how to imrpve it please reach out via [sergi@earkind.com](mailto:sergi@earkind.com) 🫶.
 
-# How to run it yourselef
+# ✍️ Generate your own episode
 
-- First you need to get keys for OpenAI and Azure's Speech Service. Then set them as env variables as `OPENAIKEY` and `AZURE_SPEECH_KEY` respectively (or hardcode them at your own risk). You can find guides to obtain those keys HERE and HERE!!!! (ADDDDDD).
+- First, get keys for OpenAI and Azure's Speech Service. Then set them as env variables as `OPENAIKEY` and `AZURE_SPEECH_KEY` respectively (or hardcode them at your own risk). You can find guides to obtain those keys HERE and HERE!!!! (ADDDDDD).
 - Install ffmpeg via `brew install ffmpeg`. Then pray for the best. This package is required for the encode-decode of various audio formats, and when you google how to install it, you get 87 different options, most of which don't work for reasons I'm not even close to understanding. `brew` is the only one that worked for me on macOS. Otherwise, you'll have to investigate yourself.
 - Install requirements via `pip install -r requirements.txt`
-- Download the audio assets into `assets/audio` [here](https://drive.google.com/drive/folders/1XJpVxs0uN9zCgUnUov5mmCf6ooLyZBmM?usp=share_link). They are .wav files to minimize encoding-decoding in read-write. The downside is they're pretty big, so I'm not committing them to the repo.
-Yes the casing and underscoring is not consistent idk i probably set them up on different days and didn't bother changing them to something consistent later on.
-- Now it's time to define what you want your show to be about. Then add the content you want your episode to contain in `content.txt`. Follow the guidelines strictly explained below!
+- Download the audio assets into `assets/audio` [from my gdrive](https://drive.google.com/drive/folders/1XJpVxs0uN9zCgUnUov5mmCf6ooLyZBmM?usp=share_link). They are .wav files to minimize encoding-decoding in read-write. Warning: at some point I might change the names of the assets!
+- Now it's time to define what you want your show to be about. This is done via the `content.txt` file. That's the human interface to define what the program will be about. Follow the guidelines from the [next section]().
 - `produce.py` is the main script and entrypoint. To produce the whole show you run `python produce.py {scope}` where `scope` can be `content` (only parse the content.txt into a content.json) `scripts` (generate program scripts), `recording` (generate voices) or `all` (include the editing + export to master audio file). You can also add a `--date` argument to specify the date to be used in the show in the format `YYYY-MM-DD`, and the logger level via `--log`.
-- The files in `assets-today/` represent the _cache_ of the program. If a something needs to be generated, it'll always try to load it from there. Actually now that i write it, i can probably clean up the code using the cache abstraction.
-- End-to-end generation is mostly okay, but sometimes scriptscan have undesirable stuff (e.g. a conversation script doesn't have the right speaker-markers and so on). The way you edit things manually is going under `assets-today/scripts/` and edit those text files. All the generated text and audios are cached as files, when running produce, if there's a cache for a script or audio, it'll be loaded from there. If you want to redo a whole section you need to delete that section's file first. For instance, if you want to change the script for a section and it was already generated with an audio file, delete the audio file, rewrite the script and run `python produce.py all` again.
+- The files created in `assets-today/` represent the _cache_ of the program. If a something needs to be generated, it'll always try to load it from there. Actually now that i write it, i can probably clean up the code using the cache abstraction.
+- End-to-end generation is mostly okay, but sometimes scriptscan have undesirable stuff (e.g. a conversation script doesn't have the right speaker-markers and so on). The way you edit things manually is going under `assets-today/scripts/` and edit those text files. That's why a useful workflow is to only generate scripts, proofread them, then generate audios. All the generated text and audios are cached as files, when running produce, if there's a cache for a script or audio, it'll be loaded from there. If you want to redo a whole section you need to delete that section's file first. For instance, if you want to change the script for a section and it was already generated with an audio file, delete the audio file, rewrite the script and run `python produce.py all` again.
 - I use some manual editing to delete these annoyances such as as Gio saying "our final news story" when it's story 2/3. ChatGPT is not that great at following many instructions so it's hard to make it do what i want it to do. I'll try new prompting strategies to mitigate this but for now it's fairly fine. I'm quite confident GPT-4 fixes a lot of these things (I've played a bit with it but don't have access to it in my Earkind account yet...). So i totally plan on making the switch, perhaps for developing it's expensive, but for daily episodes, hell yes.
-- `upload.py` is just something I use to upload the shows on an azure blob, you probably don't need it.
 
 
-# `content.txt` structure
+# 𝌞 Structure of `content.txt`
 The principle of how you feed data into the whole thing is the following.
 `content.txt` is meant to be a simple txt file to manipulate by you, the human generating the podcast.
-Then this is parsed into `content.json` so it's easier to reuse and so on.
+Then this is parsed into `content.json` so it's more convenient to mangle in the program.
 Initially i wanted to hook it up to a Notion DB or whatever i use to keep track of content but... i feel it introduces more complexity than it saves.
-At the end of the day for now I choose to have editorial
+At the end of the day I still want to choose the content in there.
 It's importat to follow the structure in the `content.txt` file so things are parsed accordingly
-- the file contains a list of the raw content to be used in the episode
-- each item is separated by `---`
-- the first line of each item indicates what type of content that is: `[NEWS]`, `[OTHER]` or `[PAPER]`. Yeah i hate that news is a weird name that cannot exist in singular form but whatever this is what it is for now.
-- For papers, the next line is the arxiv url, for news and other types it's title, source/authors, url, content (multiline).
-- For news and other content, the content part of the item will be capped at 6000 characters to avoid going over the context max. This is quite conservative, but the 1-shot prompt contains a lot of tokens and i don't want to risk it.
-- Extra newlines are thrown away FYI.
+- The file contains a list of the raw content to be used in the episode, and each item is separated by `---`.
+- The first line of each item indicates what type of content that is: `[NEWS]`, `[OTHER]` or `[PAPER]`. Yeah i hate that news is a weird name that doesnt make sense in singular form but whatever this is what it is for now.
+- For papers, the next line is the arxiv url (other stuff is scraped from arxiv).
+- For news and other types it's title, source/authors, url, content (multiline). Scraping is less consistent so i just copypaste the interesting things.
+- For news and other content, the content part of the item will be capped at `chat_limit` characters to prevent maxxing the context 4k context. This is quite conservative, but the 1-shot prompt contains a lot of tokens and i don't want to risk it.
+
+- Empty lines are thrown away, FYI.
 
 # Code Structure
 
-- `produce.py` is the 'canvas' where you define the recipe for the show. It's just a long script of all the stuff that happens. It should be slow but easy to follow.
+- `produce.py` is the 'canvas' where show recipe is defined. It's just a long script of all the stuff that happens. It should be verbose but easy to follow.
 - `assets/` where static assets live: audio files and prompts. Prompts are commited as code, audios are downloaded with the drive. Prompts can be seen as templates, as they contain variables, preceeded with the dollar-sign `$VARIABLE`. 
 - `src/` the tools to define the program recipe. It's all functions, no classes, (except for the audio editing where there's a tinie tiny class extension).
-I've tried to think of what abstractions made sense to express as classes, but it felt it added unnecessary complexity. My sense is once the prompt construction is a bit more complex and expressive (beyond simple substitutions), or once I want to hook different LM or TTS backends, then the abstractions will become clearer and will refactor on the go. `writing.py` contains text generation stuff, `recording.py` contains Text-to-speech stuff, `audio.py` contains audio stuff, and `utils.py` contains content loading/parsing/crawling stuff.
+I've tried to think of what abstractions made sense to express as classes, but it felt it added unnecessary complexity. My sense is once I start hooking up different LM or TTS backends, it'll make sense and the abstractions will become clearer.
+  - `writing.py` contains text generation stuff
+  - `recording.py` contains Text-to-speech stuff
+  - `audio.py` contains audio stuff
+  - `utils.py` contains content loading/parsing/crawling stuff
+  - `upload.py` is just something I use to upload the shows on an azure blob, you probably don't need it.
 
 # Some thoughts on why things are the way they are
 
-It runs on my laptop.
+I promise it runs on my laptop.
 
-I avoid at all cost doing refinement calls to chatGPT (or whatever api). Responses should be a one-off + rule-based parsing. It might improve quality at some points but it's just much harder to debug and predict how consistent the LLM responses will be and so on... Besides, everything I could do with an interaction + refinement in chatGPT I can probably do in a single call to GPT-4, so I plan on migrating to that once I get access to it.
+I avoid at all cost doing refinement calls to chatGPT. Responses should be a one-off + rule-based parsing. It might improve quality at some point, but just adds complexity that makes me feel gross when i feel the one-off route hasn't been maximized... Besides, everything I could do with an interaction + refinement in chatGPT I can probably do in a single call to GPT-4, so I plan on migrating to that once I get access to it. Also I want to first add anthropics LM backend and only implement it in a way that backends can be swapped easily.
 
-There's probably much better ways and I'll probably find them eventually.
+Don't want to use LangChain, it confuses me still and it doesn't feel like i need it. Besides, figuring out the templating and chaining is fun and a valuable learning experience. But who knows, once the prompt building is more complex i might need to jump there.
+
+I still like having the editorial control over what goes into the show. In the future you could also automate that and select content based on an automated recommendation system, even a personalized one where every user gets a different pod.
+For now I don't want to go down that rabbithole but, for the next show I might prioritize that and choose content that is easyly selectable automatically (e.g. top 5 entries on hackernews every day ADD LINK!!)
