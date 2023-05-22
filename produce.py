@@ -4,13 +4,14 @@ import random
 from datetime import datetime
 import markdown
 import randfacts
+import sys
 import logging
 import pyjokes
 
 from src.utils import load_content
 from src.writing import write
 from src.recording import speak, speak_conversation
-from src.audio import AudioSegment
+from src.audio import AudioSegmentPlus
 
 parser = argparse.ArgumentParser(description="Main Script for GPT Reviews")
 parser.add_argument("scope", choices=["content", "scripts", "recordings", "all"],
@@ -22,11 +23,13 @@ parser.add_argument('--log', type=str, default="INFO", dest="loglevel",
                     help="Speciify the log level from info, warning, debug, error")
 args = parser.parse_args()
 
-logging.basicConfig(handlers=[logging.FileHandler(f"{str(datetime.now())[:-7]}.log"), logging.StreamHandler()],
+level = getattr(logging, args.loglevel.upper())
+logging.root.setLevel(level)
+logging.basicConfig(handlers=[logging.StreamHandler(sys.stdout)],
                     encoding="utf-8",
                     format="%(levelname)s:%(name)s: %(asctime)s %(message)s",
                     datefmt="%I:%M:%S %p",
-                    level=getattr(logging, args.loglevel.upper()))
+                    level=level)
 
 ################################################################
 ########################## PREPROCESS! #########################
@@ -71,8 +74,7 @@ else:
                     .strftime("%A, %B %d, %Y")
 logging.info(f"Usind date: {today}")
 
-
-################################################################
+###############################################################
 ###################### WRITING SCRIPTS! ########################
 
 if args.scope in ["scripts", "recordings", "all"]:
@@ -305,7 +307,7 @@ if args.scope == "all":
     pod_description = f"{highlights}\n\nContact: \
         [sergi@earkind.com](mailto:sergi@earkind.com)\n\nTimestamps:"
 
-    program = AudioSegment.empty()
+    program = AudioSegmentPlus.empty()
 
     #### INTRO ####
     intro_section = intro_section.overlay(intro_bg, loop=True)

@@ -13,13 +13,20 @@ Listen on:
 
 This is the code I use to generate the GPT Reviews podcast on a daily basis (Mon-Fri).
 Based on a bunch of raw news, papers, and random content it generates a podacst episode explaining and commenting on it.
-Learn more about the project on the Earkind website, or on this blog post about my thinking behind it.
+Learn more about the project on the [Earkind website](https://www.earkind.com)
 
 This is an ongoing personal project, code changes can be quick and messy! If you like this or have concrete ideas on how to imrpve it please reach out via [sergi@earkind.com](mailto:sergi@earkind.com) 🫶.
 
+# Table of Contents
+
+- [Generate your own episode](#✍️-generate-your-own-episode)
+- [content.txt file structure](#𝌞-structure-of-contenttxt)
+- [Code structure](#code-structure)
+- [Thoughts](#some-thoughts-on-why-things-are-the-way-they-are)
+
 # ✍️ Generate your own episode
 
-- First, get keys for OpenAI and Azure's Speech Service. Then set them as env variables as `OPENAIKEY` and `AZURE_SPEECH_KEY` respectively (or hardcode them at your own risk). You can find guides to obtain those keys HERE and HERE!!!! (ADDDDDD).
+- First, get keys for OpenAI and Azure's Speech Service. Then set them as env variables as `OPENAIKEY` and `AZURE_SPEECH_KEY` respectively (or hardcode them at your own risk). Here's a [howto for OpenAI keys](https://www.howtogeek.com/885918/how-to-get-an-openai-api-key/), and a howto for [Azure Speech Service keys](https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started-speech-to-text).
 - Install ffmpeg via `brew install ffmpeg`. Then pray for the best. This package is required for the encode-decode of various audio formats, and when you google how to install it, you get 87 different options, most of which don't work for reasons I'm not even close to understanding. `brew` is the only one that worked for me on macOS. Otherwise, you'll have to investigate yourself.
 - Install requirements via `pip install -r requirements.txt`
 - Download the audio assets into `assets/audio` [from my gdrive](https://drive.google.com/drive/folders/1XJpVxs0uN9zCgUnUov5mmCf6ooLyZBmM?usp=share_link). They are .wav files to minimize encoding-decoding in read-write. Warning: at some point I might change the names of the assets!
@@ -66,4 +73,4 @@ I avoid at all cost doing refinement calls to chatGPT. Responses should be a one
 Don't want to use LangChain, it confuses me still and it doesn't feel like i need it. Besides, figuring out the templating and chaining is fun and a valuable learning experience. But who knows, once the prompt building is more complex i might need to jump there.
 
 I still like having the editorial control over what goes into the show. In the future you could also automate that and select content based on an automated recommendation system, even a personalized one where every user gets a different pod.
-For now I don't want to go down that rabbithole but, for the next show I might prioritize that and choose content that is easyly selectable automatically (e.g. top 5 entries on hackernews every day ADD LINK!!)
+For now I don't want to go down that rabbithole but, for the next show I might prioritize that and choose content that is easyly selectable automatically (e.g. top hackernews recap [like this podcast](https://foundr.ai/product/hacker-news-recap))
