@@ -280,7 +280,6 @@ if args.scope in ["recordings", "all"]:
 if args.scope == "all":
 
     from src.audio import (
-        loudness_targets,
         intro_theme, intro_bg,
         news_theme_first, news_theme_rest, news_theme_out,
         reads_theme, reads_theme_out,
@@ -342,7 +341,7 @@ if args.scope == "all":
                 background, loop=True).fade_out(duration=100)
             pod_description += f"\n\n{program.get_timestamp()} [{reads[i]['title']}]({reads[i]['url']})"
             program = program.append(section, crossfade=1000)
-    program = program.append(reads_theme_out, crossfade=1000)
+        program = program.append(reads_theme_out, crossfade=1000)
 
     #### ADS ####
     pod_description += f"\n\n{program.get_timestamp()} Fake sponsor"
