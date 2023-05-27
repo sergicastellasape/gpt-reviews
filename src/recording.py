@@ -1,9 +1,10 @@
 import logging
 import os
-from pydub import AudioSegment
 from xml.etree.ElementTree import Element, SubElement, tostring
 
 import azure.cognitiveservices.speech as speechsdk
+
+from src.audio import AudioSegmentPlus, loudness_targets
 
 azure_speech_key = os.getenv('AZURE_SPEECH_KEY')
 boilerplate_ssml = {
@@ -13,6 +14,8 @@ boilerplate_ssml = {
     "xmlns:emo": "http://www.w3.org/2009/10/emotionml",
     "xml:lang": "en-US",
 }
+
+narration_loudness_target = -21
 
 def speak(script,
           audio_path,
@@ -29,7 +32,7 @@ def speak(script,
         audio.export(audio_path, format="wav")
     else:
         logging.info(f"Loading audio from {audio_path}")
-        audio = AudioSegment.from_file(audio_path, format="wav")
+        audio = AudioSegmentPlus.from_file(audio_path, format="wav")
     return audio
 
 
@@ -52,12 +55,11 @@ def speak_conversation(script,
         section.export(audio_path, format="wav")
     else:
         logging.info(f"Loading conversation from {audio_path}")
-        section = AudioSegment.from_file(audio_path, format="wav")
-        # sections.append(section)
+        section = AudioSegmentPlus.from_file(audio_path, format="wav")
     return section
 
 
-def ssml2audio(ssml):
+def ssml2audio(ssml, volume=narration_loudness_target):
     speech_config = speechsdk.SpeechConfig(
         subscription=azure_speech_key, region="westeurope")
     speech_config.set_speech_synthesis_output_format(
@@ -66,7 +68,7 @@ def ssml2audio(ssml):
         speech_config=speech_config,
         audio_config=None)
     result = synthesizer.speak_ssml_async(ssml).get()
-    return AudioSegment(result.audio_data)
+    return AudioSegmentPlus(result.audio_data).to_volume(loudness_targets["narration"])
 
 
 def text2ssml(text, speaker, paragraph_silence=200, sentence_silence=150):
