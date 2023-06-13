@@ -1,15 +1,14 @@
 <h1 align="center">🎙️ GPT Reviews</h1>
 <p align="center">
 Listen on:
-</p>
-<p align="center">
-  <a href="https://open.spotify.com/show/2xvBhAct7kGYd6h9b8txhq?si=a36ba38be6074150"><img src="https://github.com/sergicastellasape/semantic-compression/assets/33417180/666172aa-9f2d-4c72-81c5-9efb45c7b73c" alt="Spotify" height="40"></a> 
-  <a href="https://music.amazon.co.uk/podcasts/b32e4420-6d57-44ed-915d-e68316217df6/gpt-reviews"><img src="https://github.com/sergicastellasape/semantic-compression/assets/33417180/560e8295-07e0-4bb0-9457-530f066c82d3" alt="Amazon" height="40"></a>
-  <a href="https://podcasts.apple.com/es/podcast/gpt-reviews/id1687287441"><img src="https://github.com/sergicastellasape/semantic-compression/assets/33417180/f1cfcf78-059b-4e02-8e04-2898d12a1ecb" alt="Apple" height="40"></a>
-  <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy9lMDgwOWM0OC9wb2RjYXN0L3Jzcw"><img src="https://github.com/sergicastellasape/semantic-compression/assets/33417180/66a010f8-15d1-4812-bdc4-f111face6fbc" alt="Google" height="40"></a>
-  <a href="https://pca.st/hxzcjo0l"><img src="https://github.com/sergicastellasape/semantic-compression/assets/33417180/97c54422-4ef9-4485-9a86-2c406df19e7c" alt="Pocketcasts" class="xbGufb" height="40"></a>
-  <a href="https://twitter.com/earkindtech"><img src="https://github.com/sergicastellasape/semantic-compression/assets/33417180/7dfc1c17-0073-4727-8f1d-a4a0da6a5142" alt="Twitter" height="40"></a>
-</p>
+
+[![Spotify](https://github.com/sergicastellasape/semantic-compression/assets/33417180/666172aa-9f2d-4c72-81c5-9efb45c7b73c)](https://open.spotify.com/show/2xvBhAct7kGYd6h9b8txhq?si=a36ba38be6074150)
+[![Amazon](https://github.com/sergicastellasape/semantic-compression/assets/33417180/560e8295-07e0-4bb0-9457-530f066c82d3)](https://music.amazon.co.uk/podcasts/b32e4420-6d57-44ed-915d-e68316217df6/gpt-reviews)
+[![Apple](https://github.com/sergicastellasape/semantic-compression/assets/33417180/f1cfcf78-059b-4e02-8e04-2898d12a1ecb)](https://podcasts.apple.com/es/podcast/gpt-reviews/id1687287441)
+[![Google](https://github.com/sergicastellasape/semantic-compression/assets/33417180/66a010f8-15d1-4812-bdc4-f111face6fbc)](https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy9lMDgwOWM0OC9wb2RjYXN0L3Jzcw)
+[![Pocketcasts](https://github.com/sergicastellasape/semantic-compression/assets/33417180/97c54422-4ef9-4485-9a86-2c406df19e7c)](https://pca.st/hxzcjo0l)
+[![Twitter](https://github.com/sergicastellasape/semantic-compression/assets/33417180/7dfc1c17-0073-4727-8f1d-a4a0da6a5142)](https://twitter.com/earkind)
+
 
 This is the code I use to generate the GPT Reviews podcast on a daily basis (Mon-Fri).
 Based on a bunch of raw news, papers, and random content it generates a podacst episode explaining and commenting on it.
