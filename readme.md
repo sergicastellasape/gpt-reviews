@@ -5,7 +5,7 @@ Listen on:
 <p align="center">
   <a href="https://open.spotify.com/show/2xvBhAct7kGYd6h9b8txhq?si=a36ba38be6074150"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/1024px-Spotify_logo_without_text.svg.png" alt="Spotify" height="40"></a> 
   <a href="https://music.amazon.co.uk/podcasts/b32e4420-6d57-44ed-915d-e68316217df6/gpt-reviews"><img src="https://nwhn.org/wp-content/uploads/2022/05/amazon-prime-music-logo.png" alt="Amazon" height="40"></a>
-  <a href="https://podcasts.apple.com/es/podcast/gpt-reviews/id1687287441"><img src="https://assets.stickpng.com/images/5f675af73b3c2a0004655703.png" alt="Apple" height="40"></a>
+  <a href="https://podcasts.apple.com/es/podcast/gpt-reviews/id1687287441"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Podcasts_%28iOS%29.svg/1024px-Podcasts_%28iOS%29.svg.png" alt="Apple" height="40"></a>
   <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy9lMDgwOWM0OC9wb2RjYXN0L3Jzcw"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Google_Podcasts_icon.svg/1200px-Google_Podcasts_icon.svg.png" alt="Google" height="40"></a>
   <a href="https://pca.st/hxzcjo0l"><img src="https://pocketcastsblog.files.wordpress.com/2022/02/cropped-pocketcasts-favicon-512x512-1.png?w=240" alt="Pocketcasts" class="xbGufb" height="40"></a>
   <a href="https://twitter.com/earkindtech"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png?20220821125553" alt="Twitter" height="40"></a>
