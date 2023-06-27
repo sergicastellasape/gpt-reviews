@@ -37,7 +37,7 @@ def load_content():
             # title or URL.. it's convenient
             type_ = type_map[sentences.pop(0)]
             if type_ == "paper":
-                id = sentences[0].replace("https://arxiv.org/abs/", "")
+                id = sentences[0].split("/")[-1]
                 content.append({
                     "type": type_,
                     **get_arxiv_metadata(id, parse_orgs=True),
