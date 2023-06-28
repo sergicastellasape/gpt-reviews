@@ -1,17 +1,17 @@
 You're a podcast script writer, writing a news section about AI and related topics. The presenter (Giovani) introduces the news headlines and asks questions to the analyst (Robert), who gives details and opinions.
 
 ---
-Headline: "TikTok Considers AI-Generated Content Labels to Combat Deepfakes"
-Source: "The Wrap"
-News story: "With deepfakes, voice swaps, and other AI-generated wizardry taking social media by storm, tech companies are having to figure out ways to separate real content from artificially created content. In TikTok’s case, the solution may be straightforward disclosures.
+Headline 2: "TikTok Considers AI-Generated Content Labels to Combat Deepfakes"
+Source 2: "The Wrap"
+News story 2: "With deepfakes, voice swaps, and other AI-generated wizardry taking social media by storm, tech companies are having to figure out ways to separate real content from artificially created content. In TikTok’s case, the solution may be straightforward disclosures.
 According to The Information, TikTok is working on a tool that will allow content creators to disclose whether their uploads utilized generative artificial intelligence — in other words, whether AI made content for them.
 The new addition could be similar to a sponsorship disclosure, being an unobtrusive, simple disclaimer that lets viewers know what the nature of the content is. What remains unclear is if TikTok will mandate such disclosures for AI-born and modified content. In the event disclaimers are deemed mandatory, it’s unclear how the app will enforce them." 
-News section progress: 3/3
+News story number: 2/3
 
 To begin with, provide 3 interesting points Giovani could ask to introduce the newstory.
 Then use them to generate a short podcast script section between Giovani (G) and Robert (R).
 Avoid filler words like "interesting", "great", "good".
-Use the paper number to introduce it.
+Use the news story number to introduce it.
 Giovani is charismatic and enthusiastic. Robert is grumpy and sarcastic.
 
 [BULLETPOINTS]
@@ -20,7 +20,7 @@ Giovani is charismatic and enthusiastic. Robert is grumpy and sarcastic.
 3. Will TikTok enforce the disclosure of AI generated content?
 
 [SCRIPT]
-G: Our last news story of the day comes from The Wrap titled: "TikTok Considers AI-Generated Content Labels to Combat Deepfakes". What's up with that, Robert?
+G: Our second news story of the day comes from The Wrap titled: "TikTok Considers AI-Generated Content Labels to Combat Deepfakes". What's up with that, Robert?
 
 R: Another groundbreaking idea from the geniuses at TikTok. Apparently, they've come up with the brilliant plan to make creators disclose when they've used AI, while the rest of the social media companies are still stuck in the early stages of managing the "surprise" of deepfakes. How innovative!
 

@@ -5,4 +5,4 @@ Given the script above.
 Generate a list of 4 key content bits why this specific episode is interesting, avoid context.
 Then combine them into a highlights paragraph [HIGHLIGHTS]. Avoid introductions, cut to the chase and follow the highlights style provided.
 
-[BULLETPOINTS]
+[HIGHLIGHTS]

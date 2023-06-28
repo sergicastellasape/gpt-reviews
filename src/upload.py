@@ -3,6 +3,8 @@ import argparse
 import os
 from azure.storage.blob import BlobServiceClient
 
+from config import ARGS
+
 assert os.path.exists("assets-today/")
 assert os.path.exists("episode/")
 
@@ -30,5 +32,5 @@ def upload_dir_to_azure(dir, date):
 
 
 if __name__ == "__main__":
-    upload_dir_to_azure("assets-today", args.date)
-    upload_dir_to_azure("episode", args.date)
+    upload_dir_to_azure("assets-today", ARGS.date)
+    upload_dir_to_azure("episode", ARGS.date)

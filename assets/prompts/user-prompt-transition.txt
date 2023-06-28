@@ -4,11 +4,12 @@ $AD
 ---
 Paper titles: $PAPERTITLES
 
-Write a short script to transition between the previous  section into the research papers section:
+Write a script to transition between the previous advertisement into the research papers section:
 - First thank the sponsor for sponsoring today's show
 - Use playful derogatory terms to call your audience
 - Mention the overall topics you'll cover, NOT the paper titles
 - Mention that Belinda, your AI research expert will join
 - Don't add speaker markers.
+- Keep it very short.
 
 [SCRIPT]

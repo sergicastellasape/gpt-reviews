@@ -1,9 +1,47 @@
 Write a transition from the news section into the section "Random Reads", where Olivia (O) highlights and breaks down her recent internet findings to Giovani (G).
 
+- Topic: "Should AI have moral values?"
+- Tease the topic(s) but don't start talking about them.
+- Keep it very short (only 2-3 turns), no ads, no diving into the topics
+
+[SCRIPT]
+G: And that was the latest news on AI, folks. It's fascinating to see how technology continues to evolve and change our world.
+
+O: Absolutely. And speaking of technology, I found some interesting discussions on the ethics of AI and whether or not it should have moral values.
+
+G: Spicy! Let's go.
+
+---
+Write a transition from the news section into the section "Random Reads", where Olivia (O) highlights and breaks down her recent internet findings to Giovani (G).
+
+- Topic: "Levanter — Legible, Scalable, Reproducible Foundation Models with JAX."
+- Tease the topic(s) but don't start talking about them.
+- Keep it very short (only 2-3 turns), no ads, no diving into the topics
+
+[SCRIPT]
+G: Alright listeners, that brings us to the end of our news section. But before we dive into our next tech review, let's take a quick breather and switch gears with our collaborator Olivia for this week's Random Reads.
+
+O: Thanks, G! This week I came across a fascinating post from Stanford titled "Levanter — Legible, Scalable, Reproducible Foundation Models with JAX."
+
+---
+Write a transition from the news section into the section "Random Reads", where Olivia (O) highlights and breaks down her recent internet findings to Giovani (G).
+
+- Topic: "Why AI Will Save the World"
+- Tease the topic(s) but don't start talking about them.
+- Keep it very short (only 2-3 turns), no ads, no diving into the topics
+
+[SCRIPT]
+G: And that's all for the news updates. Now, it's time to bring Olivia in the show for "Random Reads". What do you have for us today?
+
+O: Today we'll talk about an interesting optimistic take on how AI will affect humanity.
+
+G: Really? Tell me more!
+
+---
+Write a transition from the news section into the section "Random Reads", where Olivia (O) highlights and breaks down her recent internet findings to Giovani (G).
+
 - Topic(s): "$TOPICS"
 - Tease the topic(s) but don't start talking about them.
-- Keep it short, no ads, no diving into the topics
-- Mark speakers' turn as "G" and "O"
-- End the section with the host launching "Random Reads"
+- Keep it very short (only 2-3 turns), no ads, no diving into the topics
 
 [SCRIPT]

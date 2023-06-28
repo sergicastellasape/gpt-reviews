@@ -4,6 +4,8 @@ import os
 import re
 import time
 
+from config import ARGS
+
 openai.api_key = os.getenv('OPENAIKEY')
 
 def write(system_prompt,
@@ -18,7 +20,7 @@ def write(system_prompt,
             user_prompt_template = user_prompt_template.replace(k, v)
         prompt = user_prompt_template
         logging.info(f"Generating script for {script_path}")
-        completion = generate(system_prompt, prompt, temperature=temperature)
+        completion = generate(system_prompt, prompt, ARGS.model, temperature=temperature)
         script = parse_gpt_output(completion, parsing_options)
         assert script != ""
         with open(script_path, "w") as f:
@@ -30,7 +32,7 @@ def write(system_prompt,
     return script
 
 
-def generate(system_prompt, user_prompt, temperature=0.7):
+def generate(system_prompt, user_prompt, model, temperature=0.7):
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_prompt}
@@ -40,7 +42,7 @@ def generate(system_prompt, user_prompt, temperature=0.7):
     for i in range(retries):
         try:
             completion = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
+                model=ARGS.model,
                 messages=messages,
                 temperature=temperature
             )
