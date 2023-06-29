@@ -385,7 +385,7 @@ if ARGS.scope == "all":
     )
 
     #### SAVING FINAL FILES ####
-    now = str(datetime.now())[:-7]
+    now = str(datetime.now())[:-7] # (timestamps up to seconds)
     # POD DESCRIPTION!
     with open("episode/description.html", "w") as f:
         # this converts the markdown into html
