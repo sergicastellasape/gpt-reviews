@@ -3,7 +3,7 @@ import argparse
 import os
 from azure.storage.blob import BlobServiceClient
 
-from config import ARGS
+from ..config import ARGS
 
 assert os.path.exists("assets-today/")
 assert os.path.exists("episode/")
