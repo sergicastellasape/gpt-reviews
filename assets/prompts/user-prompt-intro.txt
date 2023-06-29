@@ -12,6 +12,6 @@ Write an introduction script for "GPT reviews". Keep it short.
 - Mention that you'll be joined by your collaborators: Robert (analyst), Olivia (internet explorer), and Belinda (AI research expert)
 - Highlight only 2 items in today's topics
 - Launch the news theme
-- Do not use speaker or any script markers
+- Don't add speaker markers or script markers. Omit stage directions and sound queues.
 
 [SCRIPT]
