@@ -14,6 +14,8 @@ def write(system_prompt,
           script_path,
           temperature,
           parsing_options):
+    # this function will always check if there's a script cached in the
+    # script_path, and only generate if there isn't one!
     if not os.path.exists(script_path):
         # prompts have variables that are replaced here
         for k, v in substitutions.items():
@@ -42,7 +44,7 @@ def generate(system_prompt, user_prompt, model, temperature=0.7):
     for i in range(retries):
         try:
             completion = openai.ChatCompletion.create(
-                model=ARGS.model,
+                model=model,
                 messages=messages,
                 temperature=temperature
             )
