@@ -1,3 +1,4 @@
+[DESCRIPTION]
 <p>The EU AI Act&#39;s potential impact on American tech companies, Meta&#39;s impressive new model architecture for better ad experiences, a multi-scale decoder architecture for modeling long sequences, and the need for best practices and regulations for AGI labs.</p>
 <p>Contact: <a href="mailto:sergi@earkind.com">sergi@earkind.com</a></p>
 <p>Timestamps:</p>
@@ -17,6 +18,41 @@ Propose a title for the script above highlighting the 3 most attractive elements
 EU AI regulation vs. Open Source 🇪🇺 // Prompt Engineering Guide ✅ // Byte-level Transformers 🤖
 
 ---
+[DESCRIPTION]
+<p>Databricks&#39; acquisition of MosaicML for $1.3 billion, Ramp&#39;s acquisition of Cohere.io to improve its customer service, and two research papers on self-supervised evaluation for large language models and scaling MLPs. These topics provide valuable insights into the growing demand for generative AI tools, the importance of realistic data evaluation, and the limits of MLPs&#39; performance on vision tasks.</p>
+<p>Contact:  <a href="mailto:sergi@earkind.com">sergi@earkind.com</a></p>
+<p>Timestamps:</p>
+<p>00:34 Introduction</p>
+<p>01:31 <a href="https://www.wsj.com/articles/databricks-strikes-1-3-billion-deal-for-generative-ai-startup-mosaicml-fdcefc06">Databricks Strikes $1.3 Billion Deal for Generative AI Startup MosaicML</a></p>
+<p>03:33 <a href="https://techcrunch.com/2023/06/26/as-the-generative-ai-craze-rages-on-fintech-ramp-acquires-ai-powered-customer-support-startup-cohere-io/">As the generative AI craze rages on, Ramp acquires customer support startup Cohere.io</a></p>
+<p>05:36 <a href="https://www.reuters.com/technology/inside-chinas-underground-market-high-end-nvidia-ai-chips-2023-06-19/">Inside China&#39;s underground market for high-end Nvidia AI chips</a></p>
+<p>07:36 Fake sponsor</p>
+
+Propose a title for the script above highlighting the 3 most attractive elements, with a related emoji for each and // separating each element. Keep it short.
+[TITLE]
+Databricks $1.3B Deal With MosaicML 💰 // Self-supervised evaluation 🧐 // Scaling MLPs 📈
+
+---
+[DESCRIPTION]
+<p>the intersection of AI and music with the Grammys&#39; new rules for AI use. We also dive into the OpenLLaMA project, an open source reproduction of Google&#39;s LLaMA language model. Our AI research expert, Belinda, joins us to discuss two papers: the Recurrent Memory Decision Transformer, which proposes a model for reinforcement learning tasks, and the Block-State Transformer, which combines State Space Models and Block Transformers for language modeling.</p>
+<p>Contact:  <a href="mailto:sergi@earkind.com">sergi@earkind.com</a></p>
+<p>Timestamps:</p>
+<p>00:34 Introduction</p>
+<p>01:40 <a href="https://www.npr.org/2023/06/18/1183013852/grammys-ai-music-awards">And the award goes to AI ft. humans: the Grammys outline new rules for AI use</a></p>
+<p>03:51 <a href="https://github.com/openlm-research/open_llama">OpenLLaMA: An Open Reproduction of LLaMA</a></p>
+<p>05:38 <a href="https://github.com/AntonOsika/gpt-engineer">GPT Engineer</a></p>
+<p>06:22 Fake sponsor</p>
+<p>08:47 <a href="https://arxiv.org/abs/2306.09459">Recurrent Memory Decision Transformer</a></p>
+<p>10:25 <a href="https://arxiv.org/abs/2306.09539">Block-State Transformer</a></p>
+<p>12:08 <a href="https://arxiv.org/abs/2306.09896">Demystifying GPT Self-Repair for Code Generation</a></p>
+<p>14:01 Outro</p>
+
+Propose a title for the script above highlighting the 3 most attractive elements, with a related emoji for each and // separating each element. Keep it short.
+[TITLE]
+Grammys' AI Rules 🎙️ // OpenLLaMA 🤖 // Recurrent Memory Decision Transformer 🔍
+
+---
+[DESCRIPTION]
 $DESCRIPTION
 
 Propose a title for the script above  highlighting the 3 most attractive elements, with a related emoji for each and // separating each element. Keep it short.

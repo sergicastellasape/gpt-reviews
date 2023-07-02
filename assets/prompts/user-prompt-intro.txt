@@ -4,14 +4,14 @@ Joke: $JOKE
 Topics: $TOPICS
 
 Write an introduction script for "GPT reviews". Keep it short.
-- Use  playful derogatory terms to call your audience
+- Use playful derogatory terms to call your audience
 - Introduce yourself in a hip way, avoid repeating words
 - The show "GPT Reviews" about AI news and research
 - Today's date
-- Fit the joke in context
-- Fit the fact in context
+- Fit the joke and fact in context
 - Mention that you'll be joined by your collaborators: Robert (analyst), Olivia (internet explorer), and Belinda (AI research expert)
 - Highlight only 2 items in today's topics
 - Launch the news theme
+- Don't add speaker markers or script markers. Omit stage directions and sound queues.
 
 [SCRIPT]

@@ -5,6 +5,8 @@ import logging
 import requests
 import PyPDF2
 
+from config import ARGS
+
 from src.writing import generate
 
 
@@ -96,6 +98,6 @@ def get_org_from_id(id):
         reader = PyPDF2.PdfReader(f)
         text = reader.pages[0].extract_text()
         prompt = f"{text}\n\n --- \nList in comma-separated form, the universities, institutions, and/or companies that participated in the paper above. Use Short names."
-        orgs = generate("", prompt, temperature=0)
+        orgs = generate("", prompt, ARGS.model, temperature=0)
     return orgs
 

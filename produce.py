@@ -1,4 +1,3 @@
-import argparse
 import os
 import random
 from datetime import datetime
@@ -8,22 +7,14 @@ import sys
 import logging
 import pyjokes
 
+from config import ARGS, CHAR_LIMIT
+
 from src.utils import load_content
 from src.writing import write
 from src.recording import speak, speak_conversation
 from src.audio import AudioSegmentPlus
 
-parser = argparse.ArgumentParser(description="Main Script for GPT Reviews")
-parser.add_argument("scope", choices=["content", "scripts", "recordings", "all"],
-                    help="Choose between 'content', 'scripts', 'recordings', 'all'")
-parser.add_argument('--date', type=str, default="",
-                    help="Specify the date of the pod episode as `yyyy-mm-dd`.\
-                        Otherwise it'll take today as the time of running")
-parser.add_argument('--log', type=str, default="INFO", dest="loglevel",
-                    help="Speciify the log level from info, warning, debug, error")
-args = parser.parse_args()
-
-level = getattr(logging, args.loglevel.upper())
+level = getattr(logging, ARGS.loglevel.upper())
 logging.root.setLevel(level)
 logging.basicConfig(handlers=[logging.StreamHandler(sys.stdout)],
                     encoding="utf-8",
@@ -53,7 +44,7 @@ news = [item for item in content if item['type'] == 'news']
 reads = [item for item in content if item['type'] == 'other']
 papers = [item for item in content if item['type'] == 'paper']
 
-char_limit = 6000
+logging.info(f"Using prompt content character limit of {CHAR_LIMIT}")
 
 # loading prompts from files to dict
 prompts = {}
@@ -67,17 +58,17 @@ for fname in os.listdir(base_dir):
         prompts[key] = f.read()
 
 # We want the date in natural language!
-if not args.date:
+if not ARGS.date:
     today = datetime.today().strftime("%A, %B %d, %Y")
 else:
-    today = datetime.strptime(args.date, "%Y-%m-%d")\
+    today = datetime.strptime(ARGS.date, "%Y-%m-%d")\
                     .strftime("%A, %B %d, %Y")
 logging.info(f"Usind date: {today}")
 
 ###############################################################
 ###################### WRITING SCRIPTS! ########################
 
-if args.scope in ["scripts", "recordings", "all"]:
+if ARGS.scope in ["scripts", "recordings", "all"]:
     # in chronological order, comments make it easier to skim
     # INTRO
     topics = "\n".join(item["title"] for item in content)
@@ -99,7 +90,7 @@ if args.scope in ["scripts", "recordings", "all"]:
                   user_prompt_template=prompts['user_prompt_news_conversation'],
                   substitutions={"$TITLE": newspiece["title"],
                                  "$SOURCE": newspiece["source"],
-                                 "$CONTENT": newspiece["content"][:char_limit],
+                                 "$CONTENT": newspiece["content"][:CHAR_LIMIT],
                                  "$PROGRESS": f"{i+1}/{len(news)}"},
                   script_path=f"assets-today/scripts/news-{i+1}.txt",
                   temperature=0.7,
@@ -124,7 +115,7 @@ if args.scope in ["scripts", "recordings", "all"]:
                   user_prompt_template=prompts['user_prompt_reads_conversation'],
                   substitutions={"$TITLE": piece["title"],
                                  "$SOURCE": piece["source"],
-                                 "$CONTENT": piece["content"][:char_limit],
+                                 "$CONTENT": piece["content"][:CHAR_LIMIT],
                                  "$PROGRESS": f"{i+1}/{len(reads)}"},
                   script_path=f"assets-today/scripts/reads-{i+1}.txt",
                   temperature=0.7,
@@ -188,7 +179,7 @@ if args.scope in ["scripts", "recordings", "all"]:
 ################################################################
 ######################### RECORDING! ###########################
 
-if args.scope in ["recordings", "all"]:
+if ARGS.scope in ["recordings", "all"]:
     intro_section = speak(script=intro_script,
                           audio_path="assets-today/audio-clips/intro.wav",
                           speaker={"name": "en-US-DavisNeural",
@@ -277,7 +268,7 @@ if args.scope in ["recordings", "all"]:
 ################################################################
 ################## EDITING + DESCRIPTION!! #####################
 
-if args.scope == "all":
+if ARGS.scope == "all":
 
     from src.audio import (
         intro_theme, intro_bg,
@@ -336,11 +327,11 @@ if args.scope == "all":
         for i, read_section in enumerate(reads_sections):
             section = read_section.pad(left=4000, right=500)
             background = reads_theme.fade(
-                to_gain=-21, start=4500, duration=1000)
+                to_gain=-19, start=4200, duration=1000)
             section = section.overlay(
                 background, loop=True).fade_out(duration=100)
             pod_description += f"\n\n{program.get_timestamp()} [{reads[i]['title']}]({reads[i]['url']})"
-            program = program.append(section, crossfade=1000)
+            program = program.append(section, crossfade=500)
         program = program.append(reads_theme_out, crossfade=1000)
 
     #### ADS ####
@@ -394,7 +385,7 @@ if args.scope == "all":
     )
 
     #### SAVING FINAL FILES ####
-    now = str(datetime.now())[:-7]
+    now = str(datetime.now())[:-7] # (timestamps up to seconds)
     # POD DESCRIPTION!
     with open("episode/description.html", "w") as f:
         # this converts the markdown into html

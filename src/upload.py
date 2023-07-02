@@ -1,13 +1,15 @@
 # script just to upload output to my azure blob container
 import argparse
 import os
+import shutil
 from azure.storage.blob import BlobServiceClient
 
 assert os.path.exists("assets-today/")
 assert os.path.exists("episode/")
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--date", type=str, help="base path for the azure blob")
+parser.add_argument("--date", type=str, required=True, help="base path for the azure blob")
+parser.add_argument("--delete-after", dest="delete", action='store_true', help='Delete stuff after uploading')
 args = parser.parse_args()
 
 storage_connection_string = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
@@ -32,3 +34,7 @@ def upload_dir_to_azure(dir, date):
 if __name__ == "__main__":
     upload_dir_to_azure("assets-today", args.date)
     upload_dir_to_azure("episode", args.date)
+    if args.delete:
+        print("Deleting folders")
+        shutil.rmtree("assets-today")
+        shutil.rmtree("episode")
