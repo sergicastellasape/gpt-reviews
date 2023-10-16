@@ -19,7 +19,7 @@ parser.add_argument("--log", type=str, default="INFO", dest="loglevel",
 # important to use the snapshot 0301 cause the prompts are not optimized for the newer models
 # and shit gets worse. Especially newer models have a bias for longer output which is annoying.
 # Prompts will need to be tweaked for newer versions as I expect older snapshots to be deprecated
-parser.add_argument("--model", type=str, default="gpt-3.5-turbo-0301", dest="model",
+parser.add_argument("--model", type=str, default="gpt-3.5-turbo-0613", dest="model",
                     help="String identifier for the model passed to the OpenAI API.")
 
 ARGS = parser.parse_args()
