@@ -8,12 +8,22 @@ assert os.path.exists("assets-today/")
 assert os.path.exists("episode/")
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--date", type=str, required=True, help="base path for the azure blob")
-parser.add_argument("--delete-after", dest="delete", action='store_true', help='Delete stuff after uploading')
+parser.add_argument(
+    "--date", type=str, required=True, help="base path for the azure blob"
+)
+parser.add_argument(
+    "--delete-after",
+    dest="delete",
+    action="store_true",
+    help="Delete stuff after uploading",
+)
 args = parser.parse_args()
 
 storage_connection_string = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
-blob_service_client = BlobServiceClient.from_connection_string(storage_connection_string)
+blob_service_client = BlobServiceClient.from_connection_string(
+    storage_connection_string
+)
+
 
 def list_files(dir):
     paths = []
@@ -22,11 +32,14 @@ def list_files(dir):
             paths.append(os.path.join(root, fname))
     return paths
 
+
 def upload_dir_to_azure(dir, date):
     list_paths = list_files(dir)
     for path in list_paths:
         target = os.path.join(date, path)
-        blob_client = blob_service_client.get_blob_client(container="gpt-reviews", blob=target)
+        blob_client = blob_service_client.get_blob_client(
+            container="gpt-reviews", blob=target
+        )
         with open(path, "rb") as f:
             blob_client.upload_blob(f, overwrite=True)
 
