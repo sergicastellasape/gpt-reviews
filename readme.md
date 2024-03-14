@@ -69,7 +69,7 @@ I've tried to think of what abstractions made sense to express as classes, but i
 
 I promise it runs on my laptop.
 
-I avoid at all cost doing refinement calls to chatGPT. Responses should be a one-off + rule-based parsing. It might improve quality at some point, but just adds complexity that makes me feel gross when i feel the one-off route hasn't been maximized... Besides, everything I could do with an interaction + refinement in chatGPT I can probably do in a single call to GPT-4, so I plan on migrating to that once I get access to it. Also I want to first add anthropics LM backend and only implement it in a way that backends can be swapped easily.
+I avoid at all cost doing refinement calls to chatGPT. Responses should be a one-off + rule-based parsing. It might improve quality at some point, but just adds complexity that makes me feel gross when i feel the one-off route hasn't been maximized... Besides, everything I could do with an interaction + refinement in chatGPT I can probably do in a single call to GPT-4, and i might switch to that if i stop caring about money. Also I want to first add anthropics LM backend and only implement it in a way that backends can be swapped easily.
 
 Don't want to use LangChain, it confuses me still and it doesn't feel like i need it. Besides, figuring out the templating and chaining is fun and a valuable learning experience. But who knows, once the prompt building is more complex i might need to jump there.
 
