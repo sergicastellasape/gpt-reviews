@@ -5,7 +5,8 @@ import markdown
 import randfacts
 import sys
 import logging
-import pyjokes
+
+from dadjokes import Dadjoke
 
 from config import ARGS, CHAR_LIMIT
 
@@ -79,7 +80,7 @@ if ARGS.scope in ["scripts", "recordings", "all"]:
         substitutions={
             "$DATE": today,
             "$FACT": randfacts.get_fact(),
-            "$JOKE": pyjokes.get_joke(),
+            "$JOKE": Dadjoke().joke,
             "$TOPICS": topics,
         },
         script_path="assets-today/scripts/intro.txt",
@@ -208,7 +209,7 @@ if ARGS.scope in ["scripts", "recordings", "all"]:
     outro_script = write(
         system_prompt=prompts["system_prompt_gio"],
         user_prompt_template=prompts["user_prompt_outro"],
-        substitutions={"$DATE": today, "$JOKE": pyjokes.get_joke()},
+        substitutions={"$DATE": today, "$JOKE": Dadjoke().joke},
         script_path="assets-today/scripts/outro.txt",
         temperature=1,
         parsing_options={},
