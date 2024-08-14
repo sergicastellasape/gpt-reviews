@@ -34,7 +34,7 @@ parser.add_argument(
 parser.add_argument(
     "--model",
     type=str,
-    default="gpt-3.5-turbo-0301",
+    default="gpt-4o-mini-2024-07-18",
     dest="model",
     help="String identifier for the model passed to the OpenAI API.",
 )
@@ -42,4 +42,4 @@ parser.add_argument(
 ARGS = parser.parse_args()
 # this is an approximation to truncate content so prompts don't go beyond a model's context window.
 # it's more convenient to truncate according to characters instead of tokens (albeit less accurate)
-CHAR_LIMIT = 30000 if "16k" in ARGS.model else 6000
+CHAR_LIMIT = 50000
